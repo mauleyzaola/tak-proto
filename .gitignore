@@ -1,0 +1,8 @@
+# MacOS files
+.DS_Store
+
+# build directory
+build/
+
+# IDE files
+.idea/
