@@ -4,7 +4,7 @@ package pb;
 import "dummy.proto";
 import "user.proto";
 
-service UserBu {
+service UserService {
     rpc Create (UserRequest) returns (CreateResponse) {}
     rpc List(Dummy) returns (ListResponse) {}
 }
