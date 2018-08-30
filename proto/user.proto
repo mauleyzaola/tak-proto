@@ -12,3 +12,4 @@ message User {
     bool isRemote = 9;
     string lastName = 10;
 }
+

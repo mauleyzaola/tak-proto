@@ -2,12 +2,13 @@ syntax = "proto3";
 package pb;
 
 import "dummy.proto";
+import "response.proto";
 import "user.proto";
 
 service UserService {
     rpc Create (UserRequest) returns (CreateResponse) {}
     rpc List(Dummy) returns (ListResponse) {}
-    rpc Validate(UserRequest) returns (ListResponse) {}
+    rpc Validate(UserRequest) returns (Response) {}
 }
 
 message UserRequest {
