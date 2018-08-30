@@ -1,6 +1,5 @@
 syntax = "proto3";
-package domain;
-
+package pb;
 import "group.proto";
 import "user.proto";
 

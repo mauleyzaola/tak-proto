@@ -12,54 +12,56 @@ import (
 	"github.com/magefile/mage/sh"
 )
 
-var buildDir = filepath.Join("./build", "domain")
+type target struct {
+	commands []string
+}
+
+const (
+	buildDir = "pb"
+	baseDir  = "proto"
+)
 
 // Generate protobuf files
 func Generate() error {
 	if err := os.MkdirAll(buildDir, 0755); err != nil {
 		return err
 	}
+	domainFileOutput := fmt.Sprintf("--go_out=%s", buildDir)
+	serviceFileOutput := fmt.Sprintf("--go_out=plugins=grpc:%s", buildDir)
+	includePath := fmt.Sprintf("--proto_path=%s", baseDir)
 
-	p := "./domain"
-	var (
-		args1, args2             []string
-		protoFiles, serviceFiles []string
-	)
-	args1 = []string{
-		fmt.Sprintf("--go_out=%s", buildDir),
-		"--proto_path=" + p,
-	}
-	args2 = []string{
-		fmt.Sprintf("--go_out=plugins=grpc:%s", buildDir),
-		"--proto_path=" + p,
-	}
+	args := []string{domainFileOutput, includePath}
 
-	files, err := ioutil.ReadDir(p)
+	// first pass, just read domain files
+	files, err := ioutil.ReadDir(baseDir)
 	if err != nil {
 		return err
 	}
 	for _, file := range files {
-		name := file.Name()
-		fullName := filepath.Join(p, name)
+		name := filepath.Join(baseDir, file.Name())
 		if strings.Contains(name, "service") {
-			serviceFiles = append(serviceFiles, fullName)
-		} else if filepath.Ext(name) == ".proto" {
-			protoFiles = append(protoFiles, fullName)
+			continue
 		}
+		args = append(args, name)
 	}
-	if len(protoFiles) != 0 {
-		args1 = append(args1, protoFiles...)
-		if err = sh.Run("protoc", args1...); err != nil {
-			return err
-		}
+	if err = sh.Run("protoc", args...); err != nil {
+		return err
 	}
 
-	if len(serviceFiles) != 0 {
-		args2 = append(args2, serviceFiles...)
-		err = sh.Run("protoc", args2...)
+	// second pass, service grpc files
+	args = []string{serviceFileOutput, includePath}
+	for _, file := range files {
+		name := filepath.Join(baseDir, file.Name())
+		if !strings.Contains(name, "service") {
+			continue
+		}
+		args = append(args, name)
+	}
+	if err = sh.Run("protoc", args...); err != nil {
+		return err
 	}
 
-	return err
+	return nil
 }
 
 // Clean protobuf generated files
