@@ -1,5 +1,6 @@
 #!/bin/bash
 
-mage clean
+echo "[INFO] - generating protobuf and gRPC files"
 
-mage generate
+mage clean
+mage -v generate
