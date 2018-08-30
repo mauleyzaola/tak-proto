@@ -1,0 +1,23 @@
+syntax = "proto3";
+package pb;
+
+import "dummy.proto";
+import "user.proto";
+
+service UserBu {
+    rpc Create (UserRequest) returns (CreateResponse) {}
+    rpc List(Dummy) returns (ListResponse) {}
+}
+
+message UserRequest {
+    User user = 1;
+}
+
+message CreateResponse {
+    User user = 1;
+}
+
+
+message ListResponse {
+    repeated User users = 1;
+}

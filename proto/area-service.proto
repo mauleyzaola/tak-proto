@@ -1,8 +1,0 @@
-syntax = "proto3";
-package pb;
-import "user.proto";
-
-message Area {
-    string id = 1;
-    User user = 2;
-}
