@@ -1,6 +1,5 @@
 syntax = "proto3";
-package domain;
-
+package pb;
 message Area {
     string id = 1;
     string name = 2;
