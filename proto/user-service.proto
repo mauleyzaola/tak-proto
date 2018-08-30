@@ -7,6 +7,7 @@ import "user.proto";
 service UserService {
     rpc Create (UserRequest) returns (CreateResponse) {}
     rpc List(Dummy) returns (ListResponse) {}
+    rpc Validate(UserRequest) returns (ListResponse) {}
 }
 
 message UserRequest {
