@@ -1,0 +1,26 @@
+syntax = "proto3";
+package pb;
+
+import "response.proto";
+import "area.proto";
+
+service AreaService {
+    rpc Load(AreaRequest) returns (AreaResponse) {}
+    rpc Create(AreaRequest) returns (AreaResponse) {}
+    rpc Update(AreaRequest) returns (AreaResponse) {}
+    rpc Delete(AreaRequest) returns (AreaResponse) {}
+    rpc Validate(Area) returns (Response) {}
+    rpc List(AreaRequest) returns (AreaListResponse) {}
+}
+
+message AreaRequest {
+    Area area = 1;
+}
+
+message AreaResponse {
+    Area area = 1;
+}
+
+message AreaListResponse {
+    repeated Area areas = 1;
+}
