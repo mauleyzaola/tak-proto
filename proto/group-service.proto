@@ -9,7 +9,7 @@ service GroupService {
     rpc Create (GroupRequest) returns (GroupResponse) {}
     rpc Update (GroupRequest) returns (GroupResponse) {}
     rpc Remove (GroupRequest) returns (GroupResponse) {}
-    rpc List(GroupRequest) returns (ListResponse) {}
+    rpc List(GroupRequest) returns (GroupListResponse) {}
     rpc Validate(Group) returns (Response) {}
 }
 
@@ -21,6 +21,6 @@ message GroupResponse {
     Group group = 1;
 }
 
-message ListResponse {
+message GroupListResponse {
     repeated Group groups = 1;
 }
