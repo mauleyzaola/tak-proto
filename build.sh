@@ -3,4 +3,4 @@
 echo "[INFO] - generating protobuf and gRPC files"
 
 mage clean
-mage -v generate
+mage generate

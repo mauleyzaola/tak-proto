@@ -6,10 +6,10 @@ import "user.proto";
 
 service UserService {
     rpc Load (UserRequest) returns (UserResponse) {}
-    rpc Create (UserRequest) returns (CreateResponse) {}
-    rpc Update (UserRequest) returns (UpdateResponse) {}
-    rpc Remove (UserRequest) returns (RemoveResponse) {}
-    rpc List(UserRequest) returns (ListResponse) {}
+    rpc Create (UserRequest) returns (UserResponse) {}
+    rpc Update (UserRequest) returns (UserResponse) {}
+    rpc Remove (UserRequest) returns (UserResponse) {}
+    rpc List(UserRequest) returns (UserListResponse) {}
     rpc Validate(User) returns (Response) {}
 }
 
@@ -17,22 +17,10 @@ message UserRequest {
     User user = 1;
 }
 
-message CreateResponse {
-    User user = 1;
-}
-
-message ListResponse {
-    repeated User users = 1;
-}
-
-message UpdateResponse {
-    User user = 1;
-}
-
-message RemoveResponse {
-    User user = 1;
-}
-
 message UserResponse {
     User user = 1;
+}
+
+message UserListResponse {
+    repeated User users = 1;
 }
