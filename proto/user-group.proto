@@ -1,0 +1,11 @@
+syntax = "proto3";
+package pb;
+import "group.proto";
+import "user.proto";
+
+message UserGroup {
+    string id = 1;
+    Group group = 2;
+    User user = 3;
+}
+

@@ -1,0 +1,19 @@
+syntax = "proto3";
+package pb;
+
+import "response.proto";
+import "user-group.proto";
+
+service UserGroupService {
+    rpc Add(UserGroupRequest) returns(Response) {}
+    rpc Remove(UserGroupRequest) returns(Response) {}
+    rpc List(UserGroupRequest) returns(UserGroupListResponse) {}
+}
+
+message UserGroupRequest {
+    UserGroup UserGroup = 1;
+}
+
+message UserGroupListResponse {
+    repeated UserGroup rows = 1;
+}
