@@ -8,7 +8,7 @@ service AreaService {
     rpc Load(AreaRequest) returns (AreaResponse) {}
     rpc Create(AreaRequest) returns (AreaResponse) {}
     rpc Update(AreaRequest) returns (AreaResponse) {}
-    rpc Delete(AreaRequest) returns (AreaResponse) {}
+    rpc Remove(AreaRequest) returns (AreaResponse) {}
     rpc Validate(Area) returns (Response) {}
     rpc List(AreaRequest) returns (AreaListResponse) {}
 }
