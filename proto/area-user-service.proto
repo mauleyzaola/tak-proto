@@ -1,0 +1,19 @@
+syntax = "proto3";
+package pb;
+
+import "response.proto";
+import "area-user.proto";
+
+service AreaUserService {
+    rpc Add(AreaUserRequest) returns(Response) {}
+    rpc Remove(AreaUserRequest) returns(Response) {}
+    rpc List(AreaUserRequest) returns(AreaUserListResponse) {}
+}
+
+message AreaUserRequest {
+    AreaUser areaUser = 1;
+}
+
+message AreaUserListResponse {
+    repeated AreaUser rows = 1;
+}
