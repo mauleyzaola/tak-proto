@@ -1,0 +1,14 @@
+syntax = "proto3";
+package pb;
+
+import "google/protobuf/timestamp.proto";
+import "user.proto";
+
+message Session {
+    string id = 1;
+    User user = 2;
+    google.protobuf.Timestamp created = 3;
+    google.protobuf.Timestamp expires = 4;
+    string ipAddress = 5;
+}
+

@@ -1,0 +1,21 @@
+syntax = "proto3";
+package pb;
+
+import "response.proto";
+import "session.proto";
+import "request.proto";
+
+service SessionService {
+    rpc Load(Request) returns (Session) {}
+    rpc Remove(Request) returns (Response) {}
+    rpc Create(SessionRequest) returns (Session) {}
+    rpc List(Request) returns (SessionListResponse) {}
+}
+
+message SessionRequest {
+    Session session = 1;
+}
+
+message SessionListResponse {
+    repeated Session list = 1;
+}
