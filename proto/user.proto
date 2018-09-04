@@ -11,5 +11,6 @@ message User {
     string SlackId = 8;
     bool isRemote = 9;
     string lastName = 10;
+    string division = 11;
 }
 
