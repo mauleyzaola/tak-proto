@@ -9,7 +9,7 @@ service SessionService {
     rpc Load(Request) returns (Session) {}
     rpc Remove(Request) returns (Response) {}
     rpc Create(SessionRequest) returns (Session) {}
-    rpc List(Request) returns (SessionListResponse) {}
+    rpc List(SessionRequest) returns (SessionListResponse) {}
 }
 
 message SessionRequest {
@@ -17,5 +17,5 @@ message SessionRequest {
 }
 
 message SessionListResponse {
-    repeated Session list = 1;
+    repeated Session rows = 1;
 }

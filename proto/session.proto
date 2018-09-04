@@ -8,7 +8,7 @@ message Session {
     string id = 1;
     User user = 2;
     google.protobuf.Timestamp created = 3;
-    google.protobuf.Timestamp expires = 4;
+    google.protobuf.Timestamp expiration = 4; // the seconds/nanos left to expire, not relative to a date
     string ipAddress = 5;
 }
 
