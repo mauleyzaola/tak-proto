@@ -1,0 +1,13 @@
+syntax = "proto3";
+package pb;
+
+import "response.proto";
+import "email.proto";
+
+service EmailService {
+    rpc Send(EmailRequest) returns (Response) {}
+}
+
+message EmailRequest {
+    Email email = 1;
+}
