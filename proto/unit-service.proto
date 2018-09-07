@@ -1,0 +1,26 @@
+syntax = "proto3";
+package pb;
+
+import "response.proto";
+import "unit.proto";
+
+service UnitService {
+    rpc Load(UnitRequest) returns (UnitResponse) {}
+    rpc Create(UnitRequest) returns (UnitResponse) {}
+    rpc Update(UnitRequest) returns (UnitResponse) {}
+    rpc Remove(UnitRequest) returns (UnitResponse) {}
+    rpc Validate(Unit) returns (Response) {}
+    rpc List(UnitRequest) returns (UnitListResponse) {}
+}
+
+message UnitRequest {
+    Unit unit = 1;
+}
+
+message UnitResponse {
+    Unit unit = 1;
+}
+
+message UnitListResponse {
+    repeated Unit units = 1;
+}

@@ -1,0 +1,26 @@
+syntax = "proto3";
+package pb;
+
+import "response.proto";
+import "supplier.proto";
+
+service SupplierService {
+    rpc Load(SupplierRequest) returns (SupplierResponse) {}
+    rpc Create(SupplierRequest) returns (SupplierResponse) {}
+    rpc Update(SupplierRequest) returns (SupplierResponse) {}
+    rpc Remove(SupplierRequest) returns (SupplierResponse) {}
+    rpc Validate(Supplier) returns (Response) {}
+    rpc List(SupplierRequest) returns (SupplierListResponse) {}
+}
+
+message SupplierRequest {
+    Supplier supplier = 1;
+}
+
+message SupplierResponse {
+    Supplier supplier = 1;
+}
+
+message SupplierListResponse {
+    repeated Supplier suppliers = 1;
+}
