@@ -1,0 +1,11 @@
+syntax = "proto3";
+package pb;
+
+import "response.proto";
+import "request.proto";
+import "lab-settings.proto";
+
+service LabSettingsService {
+    rpc Load(Request) returns (LabSettings) {}
+    rpc Save(LabSettings) returns (Response) {}
+}

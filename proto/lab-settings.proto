@@ -1,0 +1,18 @@
+syntax = "proto3";
+package pb;
+
+import "area.proto";
+import "group.proto";
+
+message LabSettings {
+    int32 batchNumber = 1;
+    string batchNumberFormat = 2;
+    repeated Area notifiedAreas = 3;
+    int32 expirationDays = 4;
+    int32 entryNumber = 5;
+    string kaizenHost = 6;
+    Group purchasingGroup = 7;
+    Group qaGroup = 8;
+    Group laboratoryGroup = 9;
+    Group adminGroup = 10;
+}
