@@ -1,0 +1,13 @@
+syntax = "proto3";
+package pb;
+
+import "response.proto";
+import "request.proto";
+import "scheduled-event.proto";
+
+service ScheduledEventService {
+    rpc Load(Request) returns (ScheduledEvent) {}
+    rpc Remove(Request) returns (Response) {}
+    rpc Save(ScheduledEvent) returns (Response) {}
+}
+
