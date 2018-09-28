@@ -1,10 +1,15 @@
 syntax = "proto3";
 package pb;
+
+import "google/protobuf/timestamp.proto";
+
 message ScheduledEvent {
     string id = 1;
-    string name = 2;
-    string event = 3;
-    string sourceid = 4;
+    string sourceId = 2;
+    string name = 3;
+    string event = 4;
+    bool sent = 5;
+    google.protobuf.Timestamp expires = 6;
 }
 
 message ScheduledEvents {

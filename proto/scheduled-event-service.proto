@@ -1,13 +1,32 @@
 syntax = "proto3";
 package pb;
 
+import "google/protobuf/timestamp.proto";
 import "response.proto";
-import "request.proto";
 import "scheduled-event.proto";
 
 service ScheduledEventService {
-    rpc Load(Request) returns (ScheduledEvent) {}
-    rpc Remove(Request) returns (Response) {}
-    rpc Save(ScheduledEvent) returns (Response) {}
+    rpc Load(ScheduledEvent) returns (ScheduledEvent) {}
+    rpc Remove(ScheduledEvent) returns (Response) {}
+    rpc Create(ScheduledEvent) returns (Response) {}
+    rpc Update(ScheduledEvent) returns (Response) {}
+
+    // should return those events which haven't expired yet
+    rpc NextSchedules(Schedules) returns (ScheduledEvents) {}
+
+    // should return those events which are expired
+    rpc ExpiredSchedules(Schedules) returns (ScheduledEvents) {}
+
+    rpc List(ListEventFilter) returns (ScheduledEvents) {}
+    rpc Validate(ScheduledEvent) returns (Response){}
+}
+
+message Schedules{
+    ScheduledEvents events = 1;
+    google.protobuf.Timestamp when = 2;
+}
+
+message ListEventFilter {
+    bool sent = 1;
 }
 
