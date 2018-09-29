@@ -1,0 +1,24 @@
+syntax = "proto3";
+package pb;
+
+import "google/protobuf/timestamp.proto";
+import "lab-material.proto";
+import "location.proto";
+import "supplier.proto";
+
+message LabBatch {
+    string id = 1;
+    Location location = 2;
+    string Batch = 3;
+    string SupplierBatch = 4;
+    double stock = 5;
+    google.protobuf.Timestamp date = 6;
+    google.protobuf.Timestamp expires = 7;
+    double reanalysis = 8;
+    Supplier supplier = 9;
+    int32 health = 10;
+    int32 inflamability = 11;
+    int32 reactivity = 12;
+    LabMaterial labMaterial = 13;
+    google.protobuf.Timestamp manufactured = 14;
+}

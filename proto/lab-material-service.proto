@@ -1,0 +1,18 @@
+syntax = "proto3";
+package pb;
+
+import "lab-material.proto";
+import "request.proto";
+import "response.proto";
+
+service LabMaterialService {
+    rpc Load(Request) returns (LabMaterial) {}
+    rpc Create(LabMaterial) returns (Response) {}
+    rpc Update(LabMaterial) returns (Response) {}
+    rpc Remove(LabMaterial) returns (Response) {}
+    rpc List(LabMaterial) returns (ListLabMaterial) {}
+}
+
+message ListLabMaterial {
+    LabMaterial labMaterial = 1;
+}
