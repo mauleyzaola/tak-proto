@@ -5,7 +5,7 @@ import "lab-batch.proto";
 import "request.proto";
 import "response.proto";
 
-service BatchService {
+service LabBatchService {
     rpc Load(Request) returns (LabBatch) {}
     rpc Create(LabBatch) returns (Response) {}
     rpc Update(LabBatch) returns (Response) {}
