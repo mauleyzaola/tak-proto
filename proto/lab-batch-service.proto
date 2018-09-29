@@ -1,0 +1,17 @@
+syntax = "proto3";
+package pb;
+
+import "lab-batch.proto";
+import "request.proto";
+import "response.proto";
+
+service BatchService {
+    rpc Load(Request) returns (LabBatch) {}
+    rpc Create(LabBatch) returns (Response) {}
+    rpc Update(LabBatch) returns (Response) {}
+    rpc List(LabBatch) returns (LabBatchList) {}
+}
+
+message LabBatchList {
+    repeated LabBatch batches = 1;
+}

@@ -2,10 +2,12 @@ syntax = "proto3";
 package pb;
 
 import "google/protobuf/timestamp.proto";
+import "supplier.proto";
 
 message LabMaterial {
     string id = 1;
     string code = 2;
     double stock = 3;
     string name = 4;
+    Supplier lastSupplier = 5;
 }

@@ -1,0 +1,18 @@
+syntax = "proto3";
+package pb;
+
+import "location.proto";
+import "request.proto";
+import "response.proto";
+
+service LocationService {
+    rpc Load(Request) returns (Location) {}
+    rpc Create(Location) returns (Response) {}
+    rpc Update(Location) returns (Response) {}
+    rpc Remove(Location) returns (Response) {}
+    rpc List(Location) returns (LocationList) {}
+}
+
+message LocationList {
+    repeated Location locations = 1;
+}

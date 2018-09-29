@@ -10,9 +10,13 @@ service LabMaterialService {
     rpc Create(LabMaterial) returns (Response) {}
     rpc Update(LabMaterial) returns (Response) {}
     rpc Remove(LabMaterial) returns (Response) {}
-    rpc List(LabMaterial) returns (ListLabMaterial) {}
+    rpc List(LabMaterialRequest) returns (ListLabMaterial) {}
 }
 
 message ListLabMaterial {
+    LabMaterial labMaterial = 1;
+}
+
+message LabMaterialRequest {
     LabMaterial labMaterial = 1;
 }

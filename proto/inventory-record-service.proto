@@ -1,0 +1,14 @@
+syntax = "proto3";
+package pb;
+
+import "response.proto";
+import "inventory-record.proto";
+
+service InventoryRecordService {
+    rpc Create(InventoryRecord) returns (Response) {}
+    rpc List(InventoryRecord) returns (InventoryRecordList) {}
+}
+
+message InventoryRecordList{
+    repeated InventoryRecord records = 1;
+}
