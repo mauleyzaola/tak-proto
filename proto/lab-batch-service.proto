@@ -10,6 +10,7 @@ service LabBatchService {
     rpc Create(LabBatch) returns (Response) {}
     rpc Update(LabBatch) returns (Response) {}
     rpc List(LabBatch) returns (LabBatchList) {}
+    rpc Validate(LabBatch) returns (Response) {}
 }
 
 message LabBatchList {
