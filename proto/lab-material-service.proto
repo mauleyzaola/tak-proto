@@ -11,6 +11,7 @@ service LabMaterialService {
     rpc Update(LabMaterial) returns (Response) {}
     rpc Remove(LabMaterial) returns (Response) {}
     rpc List(LabMaterialRequest) returns (ListLabMaterial) {}
+    rpc Validate(LabMaterial) returns (Response) {}
 }
 
 message ListLabMaterial {
