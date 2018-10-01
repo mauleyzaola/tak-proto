@@ -11,6 +11,7 @@ service LocationService {
     rpc Update(Location) returns (Response) {}
     rpc Remove(Location) returns (Response) {}
     rpc List(Location) returns (LocationList) {}
+    rpc Validate(Location) returns (Response) {}
 }
 
 message LocationList {
