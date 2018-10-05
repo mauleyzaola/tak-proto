@@ -2,9 +2,11 @@ syntax = "proto3";
 package pb;
 
 import "response.proto";
+import "request.proto";
 import "inventory-record.proto";
 
 service InventoryRecordService {
+    rpc Ping(Request) returns(Response) {}
     rpc Create(InventoryRecord) returns (Response) {}
     rpc Load(InventoryRecord) returns (InventoryRecord) {}
     rpc List(InventoryRecord) returns (InventoryRecordList) {}

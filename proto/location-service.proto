@@ -6,6 +6,7 @@ import "request.proto";
 import "response.proto";
 
 service LocationService {
+    rpc Ping(Request) returns(Response) {}
     rpc Load(Request) returns (Location) {}
     rpc Create(Location) returns (Response) {}
     rpc Update(Location) returns (Response) {}

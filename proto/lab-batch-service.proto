@@ -6,6 +6,7 @@ import "request.proto";
 import "response.proto";
 
 service LabBatchService {
+    rpc Ping(Request) returns(Response) {}
     rpc Load(Request) returns (LabBatch) {}
     rpc Create(LabBatch) returns (Response) {}
     rpc Update(LabBatch) returns (Response) {}

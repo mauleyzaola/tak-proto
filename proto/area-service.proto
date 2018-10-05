@@ -3,8 +3,10 @@ package pb;
 
 import "response.proto";
 import "area.proto";
+import "request.proto";
 
 service AreaService {
+    rpc Ping(Request) returns(Response) {}
     rpc Load(AreaRequest) returns (AreaResponse) {}
     rpc Create(AreaRequest) returns (AreaResponse) {}
     rpc Update(AreaRequest) returns (AreaResponse) {}

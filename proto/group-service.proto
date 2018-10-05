@@ -2,9 +2,11 @@ syntax = "proto3";
 package pb;
 
 import "response.proto";
+import "request.proto";
 import "group.proto";
 
 service GroupService {
+    rpc Ping(Request) returns(Response) {}
     rpc Load (GroupRequest) returns (GroupResponse) {}
     rpc Create (GroupRequest) returns (GroupResponse) {}
     rpc Update (GroupRequest) returns (GroupResponse) {}

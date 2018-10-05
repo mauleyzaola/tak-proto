@@ -2,9 +2,11 @@ syntax = "proto3";
 package pb;
 
 import "response.proto";
+import "request.proto";
 import "area-user.proto";
 
 service AreaUserService {
+    rpc Ping(Request) returns(Response) {}
     rpc Add(AreaUserRequest) returns(Response) {}
     rpc Remove(AreaUserRequest) returns(Response) {}
     rpc List(AreaUserRequest) returns(AreaUserListResponse) {}

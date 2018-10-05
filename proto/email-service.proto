@@ -2,9 +2,11 @@ syntax = "proto3";
 package pb;
 
 import "response.proto";
+import "request.proto";
 import "email.proto";
 
 service EmailService {
+    rpc Ping(Request) returns(Response) {}
     rpc Send(EmailRequest) returns (Response) {}
 }
 

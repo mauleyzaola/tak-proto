@@ -3,9 +3,11 @@ package pb;
 
 import "google/protobuf/timestamp.proto";
 import "response.proto";
+import "request.proto";
 import "scheduled-event.proto";
 
 service ScheduledEventService {
+    rpc Ping(Request) returns(Response) {}
     rpc Load(ScheduledEvent) returns (ScheduledEvent) {}
     rpc Remove(ScheduledEvent) returns (Response) {}
     rpc Create(ScheduledEvent) returns (Response) {}

@@ -6,6 +6,7 @@ import "request.proto";
 import "response.proto";
 
 service LabMaterialService {
+    rpc Ping(Request) returns(Response) {}
     rpc Load(Request) returns (LabMaterial) {}
     rpc Create(LabMaterial) returns (Response) {}
     rpc Update(LabMaterial) returns (Response) {}

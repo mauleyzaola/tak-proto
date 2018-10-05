@@ -6,6 +6,7 @@ import "session.proto";
 import "request.proto";
 
 service SessionService {
+    rpc Ping(Request) returns(Response) {}
     rpc Load(Request) returns (Session) {}
     rpc Remove(Request) returns (Response) {}
     rpc Create(SessionRequest) returns (Session) {}

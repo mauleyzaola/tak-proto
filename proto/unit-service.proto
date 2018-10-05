@@ -2,9 +2,11 @@ syntax = "proto3";
 package pb;
 
 import "response.proto";
+import "request.proto";
 import "unit.proto";
 
 service UnitService {
+    rpc Ping(Request) returns(Response) {}
     rpc Load(UnitRequest) returns (UnitResponse) {}
     rpc Create(UnitRequest) returns (UnitResponse) {}
     rpc Update(UnitRequest) returns (UnitResponse) {}
