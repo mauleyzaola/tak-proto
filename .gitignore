@@ -1,8 +1,5 @@
 # MacOS files
 .DS_Store
 
-# build directory
-pb/
-
 # IDE files
 .idea/
