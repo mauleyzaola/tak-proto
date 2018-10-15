@@ -14,7 +14,6 @@ message LabBatch {
     double stock = 5;
     google.protobuf.Timestamp date = 6;
     google.protobuf.Timestamp expires = 7;
-    double reanalysis = 8;
     Supplier supplier = 9;
     int32 health = 10;
     int32 inflamability = 11;
