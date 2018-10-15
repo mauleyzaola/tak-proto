@@ -9,7 +9,7 @@ import "supplier.proto";
 message LabBatch {
     string id = 1;
     Location location = 2;
-    string Batch = 3;
+    string batch = 3;
     string supplierBatch = 4;
     double stock = 5;
     google.protobuf.Timestamp date = 6;
