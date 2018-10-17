@@ -1,6 +1,7 @@
 syntax = "proto3";
 package pb;
 
+import "grid.proto";
 import "response.proto";
 import "request.proto";
 import "inventory-record.proto";
@@ -11,6 +12,7 @@ service InventoryRecordService {
     rpc Load(InventoryRecord) returns (InventoryRecord) {}
     rpc List(InventoryRecord) returns (InventoryRecordList) {}
     rpc Validate(InventoryRecord) returns (Response) {}
+    rpc Grid(GridRequest) returns (GridResponse) {}
 }
 
 message InventoryRecordList{
