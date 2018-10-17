@@ -20,4 +20,5 @@ message LabBatch {
     int32 reactivity = 12;
     LabMaterial labMaterial = 13;
     google.protobuf.Timestamp manufactured = 14;
+    google.protobuf.Timestamp reanalysis = 15;
 }
