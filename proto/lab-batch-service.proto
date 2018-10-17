@@ -12,6 +12,7 @@ service LabBatchService {
     rpc Update(LabBatch) returns (Response) {}
     rpc List(LabBatch) returns (LabBatchList) {}
     rpc Validate(LabBatch) returns (Response) {}
+    rpc GenBatchCode(LabBatch) returns (LabBatch) {}
 }
 
 message LabBatchList {
