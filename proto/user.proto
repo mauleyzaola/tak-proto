@@ -7,10 +7,10 @@ message User {
     string password = 4;
     bool isAdmin = 5;
     bool isActive = 6;
-    bool isSystemAdministrator = 7;
-    string SlackId = 8;
-    bool isRemote = 9;
+    // bool isSystemAdministrator = 7;
+    // string SlackId = 8;
+    // bool isRemote = 9;
     string lastName = 10;
-    string division = 11;
+    // string division = 11;
 }
 
