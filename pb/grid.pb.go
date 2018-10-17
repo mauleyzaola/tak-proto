@@ -6,7 +6,6 @@ package pb
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import any "github.com/golang/protobuf/ptypes/any"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -19,7 +18,7 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-type GridRequest struct {
+type GridInput struct {
 	PageNumber           int32    `protobuf:"varint,1,opt,name=pageNumber,proto3" json:"pageNumber,omitempty"`
 	PageSize             int32    `protobuf:"varint,2,opt,name=pageSize,proto3" json:"pageSize,omitempty"`
 	Query                string   `protobuf:"bytes,3,opt,name=query,proto3" json:"query,omitempty"`
@@ -30,149 +29,138 @@ type GridRequest struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GridRequest) Reset()         { *m = GridRequest{} }
-func (m *GridRequest) String() string { return proto.CompactTextString(m) }
-func (*GridRequest) ProtoMessage()    {}
-func (*GridRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_grid_7fc820741b8c6cf8, []int{0}
+func (m *GridInput) Reset()         { *m = GridInput{} }
+func (m *GridInput) String() string { return proto.CompactTextString(m) }
+func (*GridInput) ProtoMessage()    {}
+func (*GridInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_grid_c3863236bca5d58b, []int{0}
 }
-func (m *GridRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GridRequest.Unmarshal(m, b)
+func (m *GridInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GridInput.Unmarshal(m, b)
 }
-func (m *GridRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GridRequest.Marshal(b, m, deterministic)
+func (m *GridInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GridInput.Marshal(b, m, deterministic)
 }
-func (dst *GridRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GridRequest.Merge(dst, src)
+func (dst *GridInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GridInput.Merge(dst, src)
 }
-func (m *GridRequest) XXX_Size() int {
-	return xxx_messageInfo_GridRequest.Size(m)
+func (m *GridInput) XXX_Size() int {
+	return xxx_messageInfo_GridInput.Size(m)
 }
-func (m *GridRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GridRequest.DiscardUnknown(m)
+func (m *GridInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GridInput.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GridRequest proto.InternalMessageInfo
+var xxx_messageInfo_GridInput proto.InternalMessageInfo
 
-func (m *GridRequest) GetPageNumber() int32 {
+func (m *GridInput) GetPageNumber() int32 {
 	if m != nil {
 		return m.PageNumber
 	}
 	return 0
 }
 
-func (m *GridRequest) GetPageSize() int32 {
+func (m *GridInput) GetPageSize() int32 {
 	if m != nil {
 		return m.PageSize
 	}
 	return 0
 }
 
-func (m *GridRequest) GetQuery() string {
+func (m *GridInput) GetQuery() string {
 	if m != nil {
 		return m.Query
 	}
 	return ""
 }
 
-func (m *GridRequest) GetSortDirection() string {
+func (m *GridInput) GetSortDirection() string {
 	if m != nil {
 		return m.SortDirection
 	}
 	return ""
 }
 
-func (m *GridRequest) GetSortField() string {
+func (m *GridInput) GetSortField() string {
 	if m != nil {
 		return m.SortField
 	}
 	return ""
 }
 
-type GridResponse struct {
-	PageNumber           int32      `protobuf:"varint,1,opt,name=pageNumber,proto3" json:"pageNumber,omitempty"`
-	PageSize             int32      `protobuf:"varint,2,opt,name=pageSize,proto3" json:"pageSize,omitempty"`
-	TotalCount           int32      `protobuf:"varint,3,opt,name=totalCount,proto3" json:"totalCount,omitempty"`
-	Rows                 []*any.Any `protobuf:"bytes,4,rep,name=rows,proto3" json:"rows,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
-	XXX_unrecognized     []byte     `json:"-"`
-	XXX_sizecache        int32      `json:"-"`
+type GridOutput struct {
+	PageNumber           int32    `protobuf:"varint,1,opt,name=pageNumber,proto3" json:"pageNumber,omitempty"`
+	PageSize             int32    `protobuf:"varint,2,opt,name=pageSize,proto3" json:"pageSize,omitempty"`
+	TotalCount           int32    `protobuf:"varint,3,opt,name=totalCount,proto3" json:"totalCount,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GridResponse) Reset()         { *m = GridResponse{} }
-func (m *GridResponse) String() string { return proto.CompactTextString(m) }
-func (*GridResponse) ProtoMessage()    {}
-func (*GridResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_grid_7fc820741b8c6cf8, []int{1}
+func (m *GridOutput) Reset()         { *m = GridOutput{} }
+func (m *GridOutput) String() string { return proto.CompactTextString(m) }
+func (*GridOutput) ProtoMessage()    {}
+func (*GridOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_grid_c3863236bca5d58b, []int{1}
 }
-func (m *GridResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GridResponse.Unmarshal(m, b)
+func (m *GridOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GridOutput.Unmarshal(m, b)
 }
-func (m *GridResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GridResponse.Marshal(b, m, deterministic)
+func (m *GridOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GridOutput.Marshal(b, m, deterministic)
 }
-func (dst *GridResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GridResponse.Merge(dst, src)
+func (dst *GridOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GridOutput.Merge(dst, src)
 }
-func (m *GridResponse) XXX_Size() int {
-	return xxx_messageInfo_GridResponse.Size(m)
+func (m *GridOutput) XXX_Size() int {
+	return xxx_messageInfo_GridOutput.Size(m)
 }
-func (m *GridResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GridResponse.DiscardUnknown(m)
+func (m *GridOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GridOutput.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GridResponse proto.InternalMessageInfo
+var xxx_messageInfo_GridOutput proto.InternalMessageInfo
 
-func (m *GridResponse) GetPageNumber() int32 {
+func (m *GridOutput) GetPageNumber() int32 {
 	if m != nil {
 		return m.PageNumber
 	}
 	return 0
 }
 
-func (m *GridResponse) GetPageSize() int32 {
+func (m *GridOutput) GetPageSize() int32 {
 	if m != nil {
 		return m.PageSize
 	}
 	return 0
 }
 
-func (m *GridResponse) GetTotalCount() int32 {
+func (m *GridOutput) GetTotalCount() int32 {
 	if m != nil {
 		return m.TotalCount
 	}
 	return 0
 }
 
-func (m *GridResponse) GetRows() []*any.Any {
-	if m != nil {
-		return m.Rows
-	}
-	return nil
-}
-
 func init() {
-	proto.RegisterType((*GridRequest)(nil), "pb.GridRequest")
-	proto.RegisterType((*GridResponse)(nil), "pb.GridResponse")
+	proto.RegisterType((*GridInput)(nil), "pb.GridInput")
+	proto.RegisterType((*GridOutput)(nil), "pb.GridOutput")
 }
 
-func init() { proto.RegisterFile("grid.proto", fileDescriptor_grid_7fc820741b8c6cf8) }
+func init() { proto.RegisterFile("grid.proto", fileDescriptor_grid_c3863236bca5d58b) }
 
-var fileDescriptor_grid_7fc820741b8c6cf8 = []byte{
-	// 237 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0xd0, 0xc1, 0x4a, 0xc3, 0x40,
-	0x10, 0x06, 0x60, 0xb6, 0x4d, 0xc4, 0x4e, 0xf5, 0xb2, 0xf4, 0xb0, 0x16, 0x29, 0xa1, 0x78, 0xc8,
-	0x29, 0x05, 0x7d, 0x02, 0x51, 0xf4, 0xe6, 0x61, 0x7d, 0x82, 0xc4, 0x8c, 0x61, 0x21, 0xee, 0xa4,
-	0xb3, 0xbb, 0x48, 0x7c, 0x0e, 0xdf, 0xc0, 0x17, 0x95, 0xee, 0xa2, 0xc6, 0x73, 0x8f, 0xff, 0xf7,
-	0xcf, 0xe1, 0x67, 0x00, 0x3a, 0x36, 0x6d, 0x35, 0x30, 0x79, 0x92, 0xb3, 0xa1, 0x59, 0x5f, 0x74,
-	0x44, 0x5d, 0x8f, 0xbb, 0x28, 0x4d, 0x78, 0xdd, 0xd5, 0x76, 0x4c, 0xf5, 0xf6, 0x4b, 0xc0, 0xf2,
-	0x91, 0x4d, 0xab, 0x71, 0x1f, 0xd0, 0x79, 0xb9, 0x01, 0x18, 0xea, 0x0e, 0x9f, 0xc2, 0x5b, 0x83,
-	0xac, 0x44, 0x21, 0xca, 0x5c, 0x4f, 0x44, 0xae, 0xe1, 0xf4, 0x90, 0x9e, 0xcd, 0x07, 0xaa, 0x59,
-	0x6c, 0x7f, 0xb3, 0x5c, 0x41, 0xbe, 0x0f, 0xc8, 0xa3, 0x9a, 0x17, 0xa2, 0x5c, 0xe8, 0x14, 0xe4,
-	0x15, 0x9c, 0x3b, 0x62, 0x7f, 0x6f, 0x18, 0x5f, 0xbc, 0x21, 0xab, 0xb2, 0xd8, 0xfe, 0x47, 0x79,
-	0x09, 0x8b, 0x03, 0x3c, 0x18, 0xec, 0x5b, 0x95, 0xc7, 0x8b, 0x3f, 0xd8, 0x7e, 0x0a, 0x38, 0x4b,
-	0x2b, 0xdd, 0x40, 0xd6, 0xe1, 0x51, 0x33, 0x37, 0x00, 0x9e, 0x7c, 0xdd, 0xdf, 0x51, 0xb0, 0x3e,
-	0x6e, 0xcd, 0xf5, 0x44, 0x64, 0x09, 0x19, 0xd3, 0xbb, 0x53, 0x59, 0x31, 0x2f, 0x97, 0xd7, 0xab,
-	0x2a, 0x3d, 0xaf, 0xfa, 0x79, 0x5e, 0x75, 0x6b, 0x47, 0x1d, 0x2f, 0x9a, 0x93, 0x68, 0x37, 0xdf,
-	0x01, 0x00, 0x00, 0xff, 0xff, 0x02, 0xfa, 0x04, 0xa8, 0x70, 0x01, 0x00, 0x00,
+var fileDescriptor_grid_c3863236bca5d58b = []byte{
+	// 186 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4a, 0x2f, 0xca, 0x4c,
+	0xd1, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x2a, 0x48, 0x52, 0x5a, 0xc8, 0xc8, 0xc5, 0xe9,
+	0x5e, 0x94, 0x99, 0xe2, 0x99, 0x57, 0x50, 0x5a, 0x22, 0x24, 0xc7, 0xc5, 0x55, 0x90, 0x98, 0x9e,
+	0xea, 0x57, 0x9a, 0x9b, 0x94, 0x5a, 0x24, 0xc1, 0xa8, 0xc0, 0xa8, 0xc1, 0x1a, 0x84, 0x24, 0x22,
+	0x24, 0xc5, 0xc5, 0x01, 0xe2, 0x05, 0x67, 0x56, 0xa5, 0x4a, 0x30, 0x81, 0x65, 0xe1, 0x7c, 0x21,
+	0x11, 0x2e, 0xd6, 0xc2, 0xd2, 0xd4, 0xa2, 0x4a, 0x09, 0x66, 0x05, 0x46, 0x0d, 0xce, 0x20, 0x08,
+	0x47, 0x48, 0x85, 0x8b, 0xb7, 0x38, 0xbf, 0xa8, 0xc4, 0x25, 0xb3, 0x28, 0x35, 0xb9, 0x24, 0x33,
+	0x3f, 0x4f, 0x82, 0x05, 0x2c, 0x8b, 0x2a, 0x28, 0x24, 0xc3, 0xc5, 0x09, 0x12, 0x70, 0xcb, 0x4c,
+	0xcd, 0x49, 0x91, 0x60, 0x05, 0xab, 0x40, 0x08, 0x28, 0x65, 0x70, 0x71, 0x81, 0x9c, 0xe8, 0x5f,
+	0x5a, 0x42, 0xa9, 0x1b, 0xe5, 0xb8, 0xb8, 0x4a, 0xf2, 0x4b, 0x12, 0x73, 0x9c, 0xf3, 0x4b, 0xf3,
+	0x4a, 0xc0, 0x0e, 0x65, 0x0d, 0x42, 0x12, 0x49, 0x62, 0x03, 0x07, 0x8c, 0x31, 0x20, 0x00, 0x00,
+	0xff, 0xff, 0x3c, 0xe2, 0x8d, 0xdd, 0x26, 0x01, 0x00, 0x00,
 }

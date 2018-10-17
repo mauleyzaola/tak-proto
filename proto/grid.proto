@@ -1,9 +1,7 @@
 syntax = "proto3";
 package pb;
 
-import "google/protobuf/any.proto";
-
-message GridRequest {
+message GridInput {
     int32 pageNumber = 1;
     int32 pageSize = 2;
     string query = 3;
@@ -11,9 +9,8 @@ message GridRequest {
     string sortField = 5;
 }
 
-message GridResponse {
+message GridOutput {
     int32 pageNumber = 1;
     int32 pageSize = 2;
     int32 totalCount = 3;
-    repeated google.protobuf.Any rows = 4;
 }
