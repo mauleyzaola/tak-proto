@@ -4,6 +4,7 @@ package pb;
 import "lab-material.proto";
 import "request.proto";
 import "response.proto";
+import "grid.proto";
 
 service LabMaterialService {
     rpc Ping(Request) returns(Response) {}
@@ -13,8 +14,18 @@ service LabMaterialService {
     rpc Remove(LabMaterial) returns (Response) {}
     rpc List(LabMaterial) returns (ListLabMaterial) {}
     rpc Validate(LabMaterial) returns (Response) {}
+    rpc Grid(GridMaterialRequest) returns (GridMaterial) {}
 }
 
 message ListLabMaterial {
     repeated LabMaterial materials = 1;
+}
+
+message GridMaterialRequest {
+    GridInput grid = 1;
+}
+
+message GridMaterial {
+    GridOutput grid = 1;
+    repeated LabMaterial rows = 2;
 }
