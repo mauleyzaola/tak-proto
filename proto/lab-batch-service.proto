@@ -5,6 +5,7 @@ import "lab-batch.proto";
 import "request.proto";
 import "response.proto";
 import "grid.proto";
+import "google/protobuf/timestamp.proto";
 
 service LabBatchService {
     rpc Ping(Request) returns(Response) {}
@@ -23,9 +24,22 @@ message LabBatchList {
 
 message GridBatchRequest {
     GridInput grid = 1;
+    BatchParams params = 2;
 }
 
 message GridBatch {
     GridOutput grid = 1;
     repeated LabBatch rows = 2;
+}
+
+message BatchParams {
+    repeated string codes = 1;
+    repeated string locations = 2;
+    google.protobuf.Timestamp expirationStarts = 3;
+    google.protobuf.Timestamp expirationEnds = 4;
+    google.protobuf.Timestamp dateStarts = 5;
+    google.protobuf.Timestamp dateEnds = 6;
+    double minStock = 7;
+    double maxStock = 8;
+    repeated string suppliers = 9;
 }
