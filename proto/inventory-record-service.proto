@@ -12,11 +12,15 @@ service InventoryRecordService {
     rpc Load(InventoryRecord) returns (InventoryRecord) {}
     rpc List(InventoryRecord) returns (InventoryRecordList) {}
     rpc Validate(InventoryRecord) returns (Response) {}
-    rpc Grid(GridInput) returns (GridInvRecord) {}
+    rpc Grid(GridInvRecordRequest) returns (GridInvRecord) {}
 }
 
 message InventoryRecordList{
     repeated InventoryRecord records = 1;
+}
+
+message GridInvRecordRequest {
+    GridInput grid = 1;
 }
 
 message GridInvRecord {
