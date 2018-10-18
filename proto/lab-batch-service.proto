@@ -4,6 +4,7 @@ package pb;
 import "lab-batch.proto";
 import "request.proto";
 import "response.proto";
+import "grid.proto";
 
 service LabBatchService {
     rpc Ping(Request) returns(Response) {}
@@ -13,8 +14,18 @@ service LabBatchService {
     rpc List(LabBatch) returns (LabBatchList) {}
     rpc Validate(LabBatch) returns (Response) {}
     rpc GenBatchCode(LabBatch) returns (LabBatch) {}
+    rpc Grid(GridBatchRequest) returns (GridBatch) {}
 }
 
 message LabBatchList {
     repeated LabBatch batches = 1;
+}
+
+message GridBatchRequest {
+    GridInput grid = 1;
+}
+
+message GridBatch {
+    GridOutput grid = 1;
+    repeated LabBatch rows = 2;
 }
