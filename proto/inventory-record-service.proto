@@ -20,6 +20,6 @@ message InventoryRecordList{
 }
 
 message GridInvRecord {
-    GridInput grid = 1;
+    GridOutput grid = 1;
     repeated InventoryRecord rows = 2;
 }
