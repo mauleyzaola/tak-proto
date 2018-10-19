@@ -42,4 +42,6 @@ message BatchParams {
     double minStock = 7;
     double maxStock = 8;
     repeated string suppliers = 9;
+    google.protobuf.Timestamp manufacturedStarts = 10;
+    google.protobuf.Timestamp manufacturedEnds = 11;
 }
