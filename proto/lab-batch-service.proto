@@ -33,7 +33,7 @@ message GridBatch {
 }
 
 message BatchParams {
-    repeated string codes = 1;
+    string codes = 1;
     repeated string locations = 2;
     google.protobuf.Timestamp expirationStarts = 3;
     google.protobuf.Timestamp expirationEnds = 4;
