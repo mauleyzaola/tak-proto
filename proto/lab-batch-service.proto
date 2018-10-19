@@ -44,4 +44,6 @@ message BatchParams {
     repeated string suppliers = 9;
     google.protobuf.Timestamp manufacturedStarts = 10;
     google.protobuf.Timestamp manufacturedEnds = 11;
+    string supplierBatch = 12;
+    string batch = 13;
 }
