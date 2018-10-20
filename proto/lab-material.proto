@@ -7,7 +7,7 @@ import "supplier.proto";
 message LabMaterial {
     string id = 1;
     string code = 2;
-    double stock = 3;
+    // double stock = 3;
     string name = 4;
     Supplier lastSupplier = 5;
 }

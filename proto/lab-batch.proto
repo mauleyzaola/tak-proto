@@ -11,7 +11,7 @@ message LabBatch {
     Location location = 2;
     string batch = 3;
     string supplierBatch = 4;
-    double stock = 5;
+    // double stock = 5;
     google.protobuf.Timestamp date = 6;
     google.protobuf.Timestamp expires = 7;
     Supplier supplier = 9;

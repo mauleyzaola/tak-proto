@@ -39,8 +39,8 @@ message BatchParams {
     google.protobuf.Timestamp expirationEnds = 4;
     google.protobuf.Timestamp dateStarts = 5;
     google.protobuf.Timestamp dateEnds = 6;
-    double minStock = 7;
-    double maxStock = 8;
+    // double minStock = 7;
+    // double maxStock = 8;
     repeated string suppliers = 9;
     google.protobuf.Timestamp manufacturedStarts = 10;
     google.protobuf.Timestamp manufacturedEnds = 11;
