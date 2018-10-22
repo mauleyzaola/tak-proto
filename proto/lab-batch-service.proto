@@ -9,7 +9,7 @@ import "google/protobuf/timestamp.proto";
 
 service LabBatchService {
     rpc Ping(Request) returns(Response) {}
-    rpc Load(Request) returns (LabBatch) {}
+    rpc Load(LabBatch) returns (LabBatch) {}
     rpc Create(LabBatch) returns (Response) {}
     rpc Update(LabBatch) returns (Response) {}
     rpc List(LabBatch) returns (LabBatchList) {}
