@@ -8,7 +8,7 @@ import "grid.proto";
 
 service LabMaterialService {
     rpc Ping(Request) returns(Response) {}
-    rpc Load(Request) returns (LabMaterial) {}
+    rpc Load(LabMaterial) returns (LabMaterial) {}
     rpc Create(LabMaterial) returns (Response) {}
     rpc Update(LabMaterial) returns (Response) {}
     rpc Remove(LabMaterial) returns (Response) {}
