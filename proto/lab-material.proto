@@ -3,6 +3,7 @@ package pb;
 
 import "google/protobuf/timestamp.proto";
 import "supplier.proto";
+import "location.proto";
 
 message LabMaterial {
     string id = 1;
@@ -10,4 +11,7 @@ message LabMaterial {
     // double stock = 3;
     string name = 4;
     Supplier lastSupplier = 5;
+    google.protobuf.Timestamp lastExpires = 6;
+    Location lastLocation = 7;
+    string bases = 8;
 }
