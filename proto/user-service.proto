@@ -7,20 +7,12 @@ import "user.proto";
 
 service UserService {
     rpc Ping(Request) returns(Response) {}
-    rpc Load (UserRequest) returns (UserResponse) {}
-    rpc Create (UserRequest) returns (UserResponse) {}
-    rpc Update (UserRequest) returns (UserResponse) {}
-    rpc Remove (UserRequest) returns (UserResponse) {}
-    rpc List(UserRequest) returns (UserListResponse) {}
+    rpc Load (User) returns (User) {}
+    rpc Create (User) returns (Response) {}
+    rpc Update (User) returns (Response) {}
+    rpc Remove (User) returns (Response) {}
+    rpc List(User) returns (UserListResponse) {}
     rpc Validate(User) returns (Response) {}
-}
-
-message UserRequest {
-    User user = 1;
-}
-
-message UserResponse {
-    User user = 1;
 }
 
 message UserListResponse {

@@ -23,82 +23,6 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-type UserRequest struct {
-	User                 *User    `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *UserRequest) Reset()         { *m = UserRequest{} }
-func (m *UserRequest) String() string { return proto.CompactTextString(m) }
-func (*UserRequest) ProtoMessage()    {}
-func (*UserRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_user_service_73232e9be9243fde, []int{0}
-}
-func (m *UserRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_UserRequest.Unmarshal(m, b)
-}
-func (m *UserRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_UserRequest.Marshal(b, m, deterministic)
-}
-func (dst *UserRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_UserRequest.Merge(dst, src)
-}
-func (m *UserRequest) XXX_Size() int {
-	return xxx_messageInfo_UserRequest.Size(m)
-}
-func (m *UserRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_UserRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_UserRequest proto.InternalMessageInfo
-
-func (m *UserRequest) GetUser() *User {
-	if m != nil {
-		return m.User
-	}
-	return nil
-}
-
-type UserResponse struct {
-	User                 *User    `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *UserResponse) Reset()         { *m = UserResponse{} }
-func (m *UserResponse) String() string { return proto.CompactTextString(m) }
-func (*UserResponse) ProtoMessage()    {}
-func (*UserResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_user_service_73232e9be9243fde, []int{1}
-}
-func (m *UserResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_UserResponse.Unmarshal(m, b)
-}
-func (m *UserResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_UserResponse.Marshal(b, m, deterministic)
-}
-func (dst *UserResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_UserResponse.Merge(dst, src)
-}
-func (m *UserResponse) XXX_Size() int {
-	return xxx_messageInfo_UserResponse.Size(m)
-}
-func (m *UserResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_UserResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_UserResponse proto.InternalMessageInfo
-
-func (m *UserResponse) GetUser() *User {
-	if m != nil {
-		return m.User
-	}
-	return nil
-}
-
 type UserListResponse struct {
 	Users                []*User  `protobuf:"bytes,1,rep,name=users,proto3" json:"users,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -110,7 +34,7 @@ func (m *UserListResponse) Reset()         { *m = UserListResponse{} }
 func (m *UserListResponse) String() string { return proto.CompactTextString(m) }
 func (*UserListResponse) ProtoMessage()    {}
 func (*UserListResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_user_service_73232e9be9243fde, []int{2}
+	return fileDescriptor_user_service_656bb8010b5050af, []int{0}
 }
 func (m *UserListResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_UserListResponse.Unmarshal(m, b)
@@ -138,8 +62,6 @@ func (m *UserListResponse) GetUsers() []*User {
 }
 
 func init() {
-	proto.RegisterType((*UserRequest)(nil), "pb.UserRequest")
-	proto.RegisterType((*UserResponse)(nil), "pb.UserResponse")
 	proto.RegisterType((*UserListResponse)(nil), "pb.UserListResponse")
 }
 
@@ -156,11 +78,11 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type UserServiceClient interface {
 	Ping(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error)
-	Load(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error)
-	Create(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error)
-	Update(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error)
-	Remove(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error)
-	List(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserListResponse, error)
+	Load(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
+	Create(ctx context.Context, in *User, opts ...grpc.CallOption) (*Response, error)
+	Update(ctx context.Context, in *User, opts ...grpc.CallOption) (*Response, error)
+	Remove(ctx context.Context, in *User, opts ...grpc.CallOption) (*Response, error)
+	List(ctx context.Context, in *User, opts ...grpc.CallOption) (*UserListResponse, error)
 	Validate(ctx context.Context, in *User, opts ...grpc.CallOption) (*Response, error)
 }
 
@@ -181,8 +103,8 @@ func (c *userServiceClient) Ping(ctx context.Context, in *Request, opts ...grpc.
 	return out, nil
 }
 
-func (c *userServiceClient) Load(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error) {
-	out := new(UserResponse)
+func (c *userServiceClient) Load(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error) {
+	out := new(User)
 	err := c.cc.Invoke(ctx, "/pb.UserService/Load", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -190,8 +112,8 @@ func (c *userServiceClient) Load(ctx context.Context, in *UserRequest, opts ...g
 	return out, nil
 }
 
-func (c *userServiceClient) Create(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error) {
-	out := new(UserResponse)
+func (c *userServiceClient) Create(ctx context.Context, in *User, opts ...grpc.CallOption) (*Response, error) {
+	out := new(Response)
 	err := c.cc.Invoke(ctx, "/pb.UserService/Create", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -199,8 +121,8 @@ func (c *userServiceClient) Create(ctx context.Context, in *UserRequest, opts ..
 	return out, nil
 }
 
-func (c *userServiceClient) Update(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error) {
-	out := new(UserResponse)
+func (c *userServiceClient) Update(ctx context.Context, in *User, opts ...grpc.CallOption) (*Response, error) {
+	out := new(Response)
 	err := c.cc.Invoke(ctx, "/pb.UserService/Update", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -208,8 +130,8 @@ func (c *userServiceClient) Update(ctx context.Context, in *UserRequest, opts ..
 	return out, nil
 }
 
-func (c *userServiceClient) Remove(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error) {
-	out := new(UserResponse)
+func (c *userServiceClient) Remove(ctx context.Context, in *User, opts ...grpc.CallOption) (*Response, error) {
+	out := new(Response)
 	err := c.cc.Invoke(ctx, "/pb.UserService/Remove", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -217,7 +139,7 @@ func (c *userServiceClient) Remove(ctx context.Context, in *UserRequest, opts ..
 	return out, nil
 }
 
-func (c *userServiceClient) List(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserListResponse, error) {
+func (c *userServiceClient) List(ctx context.Context, in *User, opts ...grpc.CallOption) (*UserListResponse, error) {
 	out := new(UserListResponse)
 	err := c.cc.Invoke(ctx, "/pb.UserService/List", in, out, opts...)
 	if err != nil {
@@ -238,11 +160,11 @@ func (c *userServiceClient) Validate(ctx context.Context, in *User, opts ...grpc
 // UserServiceServer is the server API for UserService service.
 type UserServiceServer interface {
 	Ping(context.Context, *Request) (*Response, error)
-	Load(context.Context, *UserRequest) (*UserResponse, error)
-	Create(context.Context, *UserRequest) (*UserResponse, error)
-	Update(context.Context, *UserRequest) (*UserResponse, error)
-	Remove(context.Context, *UserRequest) (*UserResponse, error)
-	List(context.Context, *UserRequest) (*UserListResponse, error)
+	Load(context.Context, *User) (*User, error)
+	Create(context.Context, *User) (*Response, error)
+	Update(context.Context, *User) (*Response, error)
+	Remove(context.Context, *User) (*Response, error)
+	List(context.Context, *User) (*UserListResponse, error)
 	Validate(context.Context, *User) (*Response, error)
 }
 
@@ -269,7 +191,7 @@ func _UserService_Ping_Handler(srv interface{}, ctx context.Context, dec func(in
 }
 
 func _UserService_Load_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UserRequest)
+	in := new(User)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -281,13 +203,13 @@ func _UserService_Load_Handler(srv interface{}, ctx context.Context, dec func(in
 		FullMethod: "/pb.UserService/Load",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).Load(ctx, req.(*UserRequest))
+		return srv.(UserServiceServer).Load(ctx, req.(*User))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _UserService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UserRequest)
+	in := new(User)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -299,13 +221,13 @@ func _UserService_Create_Handler(srv interface{}, ctx context.Context, dec func(
 		FullMethod: "/pb.UserService/Create",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).Create(ctx, req.(*UserRequest))
+		return srv.(UserServiceServer).Create(ctx, req.(*User))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _UserService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UserRequest)
+	in := new(User)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -317,13 +239,13 @@ func _UserService_Update_Handler(srv interface{}, ctx context.Context, dec func(
 		FullMethod: "/pb.UserService/Update",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).Update(ctx, req.(*UserRequest))
+		return srv.(UserServiceServer).Update(ctx, req.(*User))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _UserService_Remove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UserRequest)
+	in := new(User)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -335,13 +257,13 @@ func _UserService_Remove_Handler(srv interface{}, ctx context.Context, dec func(
 		FullMethod: "/pb.UserService/Remove",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).Remove(ctx, req.(*UserRequest))
+		return srv.(UserServiceServer).Remove(ctx, req.(*User))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _UserService_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UserRequest)
+	in := new(User)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -353,7 +275,7 @@ func _UserService_List_Handler(srv interface{}, ctx context.Context, dec func(in
 		FullMethod: "/pb.UserService/List",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).List(ctx, req.(*UserRequest))
+		return srv.(UserServiceServer).List(ctx, req.(*User))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -413,24 +335,22 @@ var _UserService_serviceDesc = grpc.ServiceDesc{
 	Metadata: "user-service.proto",
 }
 
-func init() { proto.RegisterFile("user-service.proto", fileDescriptor_user_service_73232e9be9243fde) }
+func init() { proto.RegisterFile("user-service.proto", fileDescriptor_user_service_656bb8010b5050af) }
 
-var fileDescriptor_user_service_73232e9be9243fde = []byte{
-	// 251 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2a, 0x2d, 0x4e, 0x2d,
-	0xd2, 0x2d, 0x4e, 0x2d, 0x2a, 0xcb, 0x4c, 0x4e, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62,
-	0x2a, 0x48, 0x92, 0xe2, 0x2b, 0x4a, 0x2d, 0x2e, 0xc8, 0xcf, 0x2b, 0x86, 0x8a, 0x49, 0xf1, 0x16,
-	0xa5, 0x16, 0x96, 0xa6, 0x16, 0x97, 0x40, 0xb9, 0x5c, 0x20, 0x6d, 0x10, 0xb6, 0x92, 0x36, 0x17,
-	0x77, 0x68, 0x71, 0x6a, 0x51, 0x10, 0x44, 0x81, 0x90, 0x0c, 0x17, 0x0b, 0x48, 0x52, 0x82, 0x51,
-	0x81, 0x51, 0x83, 0xdb, 0x88, 0x43, 0xaf, 0x20, 0x49, 0x0f, 0x2c, 0x0d, 0x16, 0x55, 0xd2, 0xe1,
-	0xe2, 0x81, 0x28, 0x86, 0x98, 0x4e, 0x40, 0xb5, 0x11, 0x97, 0x00, 0x88, 0xe7, 0x93, 0x59, 0x5c,
-	0x02, 0xd7, 0x21, 0xc7, 0xc5, 0x0a, 0x92, 0x2b, 0x96, 0x60, 0x54, 0x60, 0x46, 0xd1, 0x02, 0x11,
-	0x36, 0x3a, 0xcc, 0x04, 0x71, 0x4f, 0x30, 0xc4, 0x4f, 0x42, 0xca, 0x5c, 0x2c, 0x01, 0x99, 0x79,
-	0xe9, 0x42, 0xdc, 0x20, 0x85, 0x50, 0x47, 0x4a, 0xf1, 0x40, 0x38, 0x10, 0x23, 0x95, 0x18, 0x84,
-	0xb4, 0xb9, 0x58, 0x7c, 0xf2, 0x13, 0x53, 0x84, 0xf8, 0xe1, 0xa6, 0x41, 0x15, 0x0a, 0x20, 0x04,
-	0xe0, 0x8a, 0x75, 0xb9, 0xd8, 0x9c, 0x8b, 0x52, 0x13, 0x4b, 0x52, 0x89, 0x56, 0x1e, 0x5a, 0x90,
-	0x42, 0x8a, 0xf2, 0xa0, 0xd4, 0xdc, 0xfc, 0x32, 0x22, 0x95, 0xeb, 0x73, 0xb1, 0x80, 0x82, 0x07,
-	0x53, 0xb1, 0x08, 0x4c, 0x00, 0x39, 0xf4, 0x94, 0x18, 0x84, 0x54, 0xb8, 0x38, 0xc2, 0x12, 0x73,
-	0x32, 0xc1, 0x0e, 0x82, 0x07, 0x1e, 0x7a, 0x80, 0x24, 0xb1, 0x81, 0xe3, 0xd6, 0x18, 0x10, 0x00,
-	0x00, 0xff, 0xff, 0x47, 0xec, 0xa2, 0x85, 0x20, 0x02, 0x00, 0x00,
+var fileDescriptor_user_service_656bb8010b5050af = []byte{
+	// 222 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x90, 0xc1, 0x4a, 0xc6, 0x30,
+	0x10, 0x84, 0xeb, 0x6f, 0x2d, 0x3f, 0x5b, 0x15, 0x59, 0x3c, 0x48, 0x10, 0x91, 0xe8, 0xa1, 0x17,
+	0x7b, 0xa8, 0x8f, 0xe0, 0xb5, 0x07, 0x89, 0xd4, 0x7b, 0x6b, 0x17, 0x09, 0x68, 0x13, 0xb3, 0x69,
+	0x9f, 0xc2, 0x87, 0x96, 0x98, 0x5a, 0x8a, 0x87, 0xfe, 0xb7, 0x99, 0xcd, 0xb7, 0x33, 0x64, 0x01,
+	0x47, 0x26, 0xf7, 0xc0, 0xe4, 0x26, 0xfd, 0x46, 0xa5, 0x75, 0xc6, 0x1b, 0xdc, 0xd9, 0x4e, 0x9c,
+	0x3b, 0x62, 0x6b, 0x06, 0x9e, 0x67, 0xe2, 0xcc, 0xd1, 0xd7, 0x48, 0xec, 0x67, 0x0b, 0x61, 0x2d,
+	0x6a, 0x59, 0xc1, 0x45, 0xc3, 0xe4, 0x6a, 0xcd, 0x5e, 0xcd, 0x4b, 0x78, 0x03, 0x27, 0x81, 0xe0,
+	0xab, 0xa3, 0xdb, 0xe3, 0x22, 0xaf, 0xf6, 0xa5, 0xed, 0xca, 0x00, 0xa9, 0x38, 0xae, 0xbe, 0x77,
+	0x90, 0x07, 0xff, 0x12, 0x8b, 0xf1, 0x0e, 0xd2, 0x67, 0x3d, 0xbc, 0x63, 0x1e, 0x40, 0x15, 0xab,
+	0xc4, 0x69, 0x34, 0x31, 0x52, 0x26, 0x78, 0x0d, 0x69, 0x6d, 0xda, 0x1e, 0x97, 0x34, 0xb1, 0x28,
+	0x99, 0xa0, 0x84, 0xec, 0xc9, 0x51, 0xeb, 0x69, 0xf5, 0xfe, 0x3f, 0x41, 0x42, 0xd6, 0xd8, 0xfe,
+	0x20, 0xa3, 0xe8, 0xd3, 0x4c, 0x5b, 0x4c, 0x01, 0x69, 0xf8, 0xee, 0x8a, 0xb8, 0xfc, 0x53, 0xeb,
+	0x33, 0xc8, 0x04, 0xef, 0x61, 0xff, 0xda, 0x7e, 0xe8, 0xed, 0xce, 0x2e, 0xfb, 0xbd, 0xe4, 0xe3,
+	0x4f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x31, 0x7f, 0x77, 0x27, 0x8e, 0x01, 0x00, 0x00,
 }
