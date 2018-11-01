@@ -3,5 +3,6 @@ package pb;
 message Response {
     repeated string messages = 1;
     bool ok = 2;
+    string data = 3;
 }
 
