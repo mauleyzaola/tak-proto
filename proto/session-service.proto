@@ -11,6 +11,7 @@ service SessionService {
     rpc Remove(Request) returns (Response) {}
     rpc Create(SessionRequest) returns (Session) {}
     rpc List(SessionRequest) returns (SessionListResponse) {}
+    rpc Encrypt(Request) returns (Response) {}
 }
 
 message SessionRequest {

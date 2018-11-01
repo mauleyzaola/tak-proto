@@ -3,4 +3,5 @@ package pb;
 
 message Request {
     string id = 1;
+    string data = 2;
 }
