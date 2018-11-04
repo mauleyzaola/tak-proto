@@ -1,18 +1,15 @@
 syntax = "proto3";
 package pb;
 
-import "area.proto";
 import "group.proto";
 
 message LabSettings {
-    int32 batchNumber = 1;
-    string batchNumberFormat = 2;
-    repeated Area notifiedAreas = 3;
-    int32 expirationDays = 4;
-    int32 entryNumber = 5;
-    string kaizenHost = 6;
-    Group purchasingGroup = 7;
-    Group qaGroup = 8;
-    Group laboratoryGroup = 9;
-    Group adminGroup = 10;
+    string baseDomain = 1;
+    int32 daysToExpire = 2;
+    string mailKey = 3;
+    repeated string notifyAreas = 4;
+    string senderAddress = 5;
+    Group groupLaboratory = 7;
+    Group groupPurchasing = 8;
+    Group groupQA = 9;
 }
