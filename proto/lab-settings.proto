@@ -1,7 +1,6 @@
 syntax = "proto3";
 package pb;
 
-import "group.proto";
 
 message LabSettings {
     string baseDomain = 1;
@@ -9,7 +8,7 @@ message LabSettings {
     string mailKey = 3;
     repeated string notifyAreas = 4;
     string senderAddress = 5;
-    Group groupLaboratory = 7;
-    Group groupPurchasing = 8;
-    Group groupQA = 9;
+    string groupLaboratory = 7;
+    string groupPurchasing = 8;
+    string groupQA = 9;
 }
