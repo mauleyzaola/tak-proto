@@ -16,6 +16,7 @@ service LabBatchService {
     rpc Validate(LabBatch) returns (Response) {}
     rpc GenBatchCode(LabBatch) returns (LabBatch) {}
     rpc Grid(GridBatchRequest) returns (GridBatch) {}
+    rpc Export(ExportRequest) returns (Response) {}
 }
 
 message LabBatchList {
@@ -46,4 +47,9 @@ message BatchParams {
     google.protobuf.Timestamp manufacturedEnds = 11;
     string supplierBatch = 12;
     string batch = 13;
+}
+
+message ExportRequest {
+    GridInput grid = 1;
+    BatchParams params = 2;
 }
