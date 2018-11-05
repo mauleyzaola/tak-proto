@@ -16,7 +16,7 @@ service LabBatchService {
     rpc Validate(LabBatch) returns (Response) {}
     rpc GenBatchCode(LabBatch) returns (LabBatch) {}
     rpc Grid(GridBatchRequest) returns (GridBatch) {}
-    rpc Export(ExportRequest) returns (Response) {}
+    rpc Export(ExportRequest) returns (ExportResponse) {}
 }
 
 message LabBatchList {
@@ -52,4 +52,8 @@ message BatchParams {
 message ExportRequest {
     GridInput grid = 1;
     BatchParams params = 2;
+}
+
+message ExportResponse {
+    bytes result = 1;
 }
