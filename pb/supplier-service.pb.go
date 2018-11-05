@@ -23,82 +23,6 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-type SupplierRequest struct {
-	Supplier             *Supplier `protobuf:"bytes,1,opt,name=supplier,proto3" json:"supplier,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
-	XXX_unrecognized     []byte    `json:"-"`
-	XXX_sizecache        int32     `json:"-"`
-}
-
-func (m *SupplierRequest) Reset()         { *m = SupplierRequest{} }
-func (m *SupplierRequest) String() string { return proto.CompactTextString(m) }
-func (*SupplierRequest) ProtoMessage()    {}
-func (*SupplierRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_supplier_service_41d34bc3d0845b0a, []int{0}
-}
-func (m *SupplierRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SupplierRequest.Unmarshal(m, b)
-}
-func (m *SupplierRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SupplierRequest.Marshal(b, m, deterministic)
-}
-func (dst *SupplierRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SupplierRequest.Merge(dst, src)
-}
-func (m *SupplierRequest) XXX_Size() int {
-	return xxx_messageInfo_SupplierRequest.Size(m)
-}
-func (m *SupplierRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_SupplierRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SupplierRequest proto.InternalMessageInfo
-
-func (m *SupplierRequest) GetSupplier() *Supplier {
-	if m != nil {
-		return m.Supplier
-	}
-	return nil
-}
-
-type SupplierResponse struct {
-	Supplier             *Supplier `protobuf:"bytes,1,opt,name=supplier,proto3" json:"supplier,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
-	XXX_unrecognized     []byte    `json:"-"`
-	XXX_sizecache        int32     `json:"-"`
-}
-
-func (m *SupplierResponse) Reset()         { *m = SupplierResponse{} }
-func (m *SupplierResponse) String() string { return proto.CompactTextString(m) }
-func (*SupplierResponse) ProtoMessage()    {}
-func (*SupplierResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_supplier_service_41d34bc3d0845b0a, []int{1}
-}
-func (m *SupplierResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SupplierResponse.Unmarshal(m, b)
-}
-func (m *SupplierResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SupplierResponse.Marshal(b, m, deterministic)
-}
-func (dst *SupplierResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SupplierResponse.Merge(dst, src)
-}
-func (m *SupplierResponse) XXX_Size() int {
-	return xxx_messageInfo_SupplierResponse.Size(m)
-}
-func (m *SupplierResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_SupplierResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SupplierResponse proto.InternalMessageInfo
-
-func (m *SupplierResponse) GetSupplier() *Supplier {
-	if m != nil {
-		return m.Supplier
-	}
-	return nil
-}
-
 type SupplierListResponse struct {
 	Suppliers            []*Supplier `protobuf:"bytes,1,rep,name=suppliers,proto3" json:"suppliers,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
@@ -110,7 +34,7 @@ func (m *SupplierListResponse) Reset()         { *m = SupplierListResponse{} }
 func (m *SupplierListResponse) String() string { return proto.CompactTextString(m) }
 func (*SupplierListResponse) ProtoMessage()    {}
 func (*SupplierListResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_supplier_service_41d34bc3d0845b0a, []int{2}
+	return fileDescriptor_supplier_service_3055cd369d59ce1e, []int{0}
 }
 func (m *SupplierListResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SupplierListResponse.Unmarshal(m, b)
@@ -138,8 +62,6 @@ func (m *SupplierListResponse) GetSuppliers() []*Supplier {
 }
 
 func init() {
-	proto.RegisterType((*SupplierRequest)(nil), "pb.SupplierRequest")
-	proto.RegisterType((*SupplierResponse)(nil), "pb.SupplierResponse")
 	proto.RegisterType((*SupplierListResponse)(nil), "pb.SupplierListResponse")
 }
 
@@ -156,12 +78,12 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type SupplierServiceClient interface {
 	Ping(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error)
-	Load(ctx context.Context, in *SupplierRequest, opts ...grpc.CallOption) (*SupplierResponse, error)
-	Create(ctx context.Context, in *SupplierRequest, opts ...grpc.CallOption) (*SupplierResponse, error)
-	Update(ctx context.Context, in *SupplierRequest, opts ...grpc.CallOption) (*SupplierResponse, error)
-	Remove(ctx context.Context, in *SupplierRequest, opts ...grpc.CallOption) (*SupplierResponse, error)
+	Load(ctx context.Context, in *Supplier, opts ...grpc.CallOption) (*Supplier, error)
+	Create(ctx context.Context, in *Supplier, opts ...grpc.CallOption) (*Response, error)
+	Update(ctx context.Context, in *Supplier, opts ...grpc.CallOption) (*Response, error)
+	Remove(ctx context.Context, in *Supplier, opts ...grpc.CallOption) (*Response, error)
 	Validate(ctx context.Context, in *Supplier, opts ...grpc.CallOption) (*Response, error)
-	List(ctx context.Context, in *SupplierRequest, opts ...grpc.CallOption) (*SupplierListResponse, error)
+	List(ctx context.Context, in *Supplier, opts ...grpc.CallOption) (*SupplierListResponse, error)
 }
 
 type supplierServiceClient struct {
@@ -181,8 +103,8 @@ func (c *supplierServiceClient) Ping(ctx context.Context, in *Request, opts ...g
 	return out, nil
 }
 
-func (c *supplierServiceClient) Load(ctx context.Context, in *SupplierRequest, opts ...grpc.CallOption) (*SupplierResponse, error) {
-	out := new(SupplierResponse)
+func (c *supplierServiceClient) Load(ctx context.Context, in *Supplier, opts ...grpc.CallOption) (*Supplier, error) {
+	out := new(Supplier)
 	err := c.cc.Invoke(ctx, "/pb.SupplierService/Load", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -190,8 +112,8 @@ func (c *supplierServiceClient) Load(ctx context.Context, in *SupplierRequest, o
 	return out, nil
 }
 
-func (c *supplierServiceClient) Create(ctx context.Context, in *SupplierRequest, opts ...grpc.CallOption) (*SupplierResponse, error) {
-	out := new(SupplierResponse)
+func (c *supplierServiceClient) Create(ctx context.Context, in *Supplier, opts ...grpc.CallOption) (*Response, error) {
+	out := new(Response)
 	err := c.cc.Invoke(ctx, "/pb.SupplierService/Create", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -199,8 +121,8 @@ func (c *supplierServiceClient) Create(ctx context.Context, in *SupplierRequest,
 	return out, nil
 }
 
-func (c *supplierServiceClient) Update(ctx context.Context, in *SupplierRequest, opts ...grpc.CallOption) (*SupplierResponse, error) {
-	out := new(SupplierResponse)
+func (c *supplierServiceClient) Update(ctx context.Context, in *Supplier, opts ...grpc.CallOption) (*Response, error) {
+	out := new(Response)
 	err := c.cc.Invoke(ctx, "/pb.SupplierService/Update", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -208,8 +130,8 @@ func (c *supplierServiceClient) Update(ctx context.Context, in *SupplierRequest,
 	return out, nil
 }
 
-func (c *supplierServiceClient) Remove(ctx context.Context, in *SupplierRequest, opts ...grpc.CallOption) (*SupplierResponse, error) {
-	out := new(SupplierResponse)
+func (c *supplierServiceClient) Remove(ctx context.Context, in *Supplier, opts ...grpc.CallOption) (*Response, error) {
+	out := new(Response)
 	err := c.cc.Invoke(ctx, "/pb.SupplierService/Remove", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -226,7 +148,7 @@ func (c *supplierServiceClient) Validate(ctx context.Context, in *Supplier, opts
 	return out, nil
 }
 
-func (c *supplierServiceClient) List(ctx context.Context, in *SupplierRequest, opts ...grpc.CallOption) (*SupplierListResponse, error) {
+func (c *supplierServiceClient) List(ctx context.Context, in *Supplier, opts ...grpc.CallOption) (*SupplierListResponse, error) {
 	out := new(SupplierListResponse)
 	err := c.cc.Invoke(ctx, "/pb.SupplierService/List", in, out, opts...)
 	if err != nil {
@@ -238,12 +160,12 @@ func (c *supplierServiceClient) List(ctx context.Context, in *SupplierRequest, o
 // SupplierServiceServer is the server API for SupplierService service.
 type SupplierServiceServer interface {
 	Ping(context.Context, *Request) (*Response, error)
-	Load(context.Context, *SupplierRequest) (*SupplierResponse, error)
-	Create(context.Context, *SupplierRequest) (*SupplierResponse, error)
-	Update(context.Context, *SupplierRequest) (*SupplierResponse, error)
-	Remove(context.Context, *SupplierRequest) (*SupplierResponse, error)
+	Load(context.Context, *Supplier) (*Supplier, error)
+	Create(context.Context, *Supplier) (*Response, error)
+	Update(context.Context, *Supplier) (*Response, error)
+	Remove(context.Context, *Supplier) (*Response, error)
 	Validate(context.Context, *Supplier) (*Response, error)
-	List(context.Context, *SupplierRequest) (*SupplierListResponse, error)
+	List(context.Context, *Supplier) (*SupplierListResponse, error)
 }
 
 func RegisterSupplierServiceServer(s *grpc.Server, srv SupplierServiceServer) {
@@ -269,7 +191,7 @@ func _SupplierService_Ping_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 func _SupplierService_Load_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SupplierRequest)
+	in := new(Supplier)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -281,13 +203,13 @@ func _SupplierService_Load_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: "/pb.SupplierService/Load",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SupplierServiceServer).Load(ctx, req.(*SupplierRequest))
+		return srv.(SupplierServiceServer).Load(ctx, req.(*Supplier))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _SupplierService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SupplierRequest)
+	in := new(Supplier)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -299,13 +221,13 @@ func _SupplierService_Create_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: "/pb.SupplierService/Create",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SupplierServiceServer).Create(ctx, req.(*SupplierRequest))
+		return srv.(SupplierServiceServer).Create(ctx, req.(*Supplier))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _SupplierService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SupplierRequest)
+	in := new(Supplier)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -317,13 +239,13 @@ func _SupplierService_Update_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: "/pb.SupplierService/Update",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SupplierServiceServer).Update(ctx, req.(*SupplierRequest))
+		return srv.(SupplierServiceServer).Update(ctx, req.(*Supplier))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _SupplierService_Remove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SupplierRequest)
+	in := new(Supplier)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -335,7 +257,7 @@ func _SupplierService_Remove_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: "/pb.SupplierService/Remove",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SupplierServiceServer).Remove(ctx, req.(*SupplierRequest))
+		return srv.(SupplierServiceServer).Remove(ctx, req.(*Supplier))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -359,7 +281,7 @@ func _SupplierService_Validate_Handler(srv interface{}, ctx context.Context, dec
 }
 
 func _SupplierService_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SupplierRequest)
+	in := new(Supplier)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -371,7 +293,7 @@ func _SupplierService_List_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: "/pb.SupplierService/List",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SupplierServiceServer).List(ctx, req.(*SupplierRequest))
+		return srv.(SupplierServiceServer).List(ctx, req.(*Supplier))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -414,25 +336,24 @@ var _SupplierService_serviceDesc = grpc.ServiceDesc{
 }
 
 func init() {
-	proto.RegisterFile("supplier-service.proto", fileDescriptor_supplier_service_41d34bc3d0845b0a)
+	proto.RegisterFile("supplier-service.proto", fileDescriptor_supplier_service_3055cd369d59ce1e)
 }
 
-var fileDescriptor_supplier_service_41d34bc3d0845b0a = []byte{
-	// 255 bytes of a gzipped FileDescriptorProto
+var fileDescriptor_supplier_service_3055cd369d59ce1e = []byte{
+	// 226 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2b, 0x2e, 0x2d, 0x28,
 	0xc8, 0xc9, 0x4c, 0x2d, 0xd2, 0x2d, 0x4e, 0x2d, 0x2a, 0xcb, 0x4c, 0x4e, 0xd5, 0x2b, 0x28, 0xca,
 	0x2f, 0xc9, 0x17, 0x62, 0x2a, 0x48, 0x92, 0xe2, 0x2b, 0x4a, 0x2d, 0x2e, 0xc8, 0xcf, 0x2b, 0x86,
 	0x8a, 0x49, 0xf1, 0x16, 0xa5, 0x16, 0x96, 0xa6, 0x16, 0x97, 0x40, 0xb9, 0x7c, 0x30, 0xad, 0x10,
-	0xbe, 0x92, 0x35, 0x17, 0x7f, 0x30, 0x54, 0x24, 0x08, 0xa2, 0x50, 0x48, 0x83, 0x8b, 0x03, 0xa6,
-	0x48, 0x82, 0x51, 0x81, 0x51, 0x83, 0xdb, 0x88, 0x47, 0xaf, 0x20, 0x49, 0x0f, 0xae, 0x0c, 0x2e,
-	0xab, 0x64, 0xc3, 0x25, 0x80, 0xd0, 0x0c, 0xb1, 0x95, 0x04, 0xdd, 0x4e, 0x5c, 0x22, 0x30, 0x51,
-	0x9f, 0xcc, 0xe2, 0x12, 0xb8, 0x09, 0x5a, 0x5c, 0x9c, 0x30, 0x35, 0xc5, 0x12, 0x8c, 0x0a, 0xcc,
-	0x18, 0x46, 0x20, 0xa4, 0x8d, 0x3e, 0x33, 0x21, 0xdc, 0x1f, 0x0c, 0x09, 0x0b, 0x21, 0x65, 0x2e,
-	0x96, 0x80, 0xcc, 0xbc, 0x74, 0x21, 0x6e, 0x90, 0x26, 0xa8, 0xa7, 0xa4, 0x78, 0x20, 0x1c, 0x88,
-	0x15, 0x4a, 0x0c, 0x42, 0xc6, 0x5c, 0x2c, 0x3e, 0xf9, 0x89, 0x29, 0x42, 0xc2, 0x28, 0x26, 0x43,
-	0x15, 0x8b, 0xa0, 0x0a, 0xc2, 0x35, 0x99, 0x72, 0xb1, 0x39, 0x17, 0xa5, 0x26, 0x96, 0xa4, 0x92,
-	0xac, 0x2d, 0xb4, 0x20, 0x85, 0x1c, 0x6d, 0x41, 0xa9, 0xb9, 0xf9, 0x65, 0x24, 0x6a, 0xd3, 0xe0,
-	0xe2, 0x08, 0x4b, 0xcc, 0xc9, 0x04, 0xdb, 0x87, 0x12, 0x6e, 0x18, 0x61, 0x60, 0xce, 0xc5, 0x02,
-	0x0a, 0x78, 0xec, 0xc6, 0x4b, 0x20, 0x0b, 0x22, 0xc7, 0x8f, 0x12, 0x43, 0x12, 0x1b, 0x38, 0xed,
-	0x18, 0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0x19, 0xfb, 0xff, 0xe2, 0x88, 0x02, 0x00, 0x00,
+	0xbe, 0x92, 0x13, 0x97, 0x48, 0x30, 0x54, 0xc4, 0x27, 0xb3, 0xb8, 0x24, 0x08, 0xaa, 0x59, 0x48,
+	0x8b, 0x8b, 0x13, 0xa6, 0xb2, 0x58, 0x82, 0x51, 0x81, 0x59, 0x83, 0xdb, 0x88, 0x47, 0xaf, 0x20,
+	0x49, 0x0f, 0xa6, 0x38, 0x08, 0x21, 0x6d, 0xb4, 0x81, 0x89, 0x8b, 0x1f, 0x26, 0x1e, 0x0c, 0x71,
+	0x90, 0x90, 0x32, 0x17, 0x4b, 0x40, 0x66, 0x5e, 0xba, 0x10, 0x37, 0x48, 0x53, 0x10, 0xc4, 0x09,
+	0x52, 0x3c, 0x10, 0x0e, 0xc4, 0x0a, 0x25, 0x06, 0x21, 0x15, 0x2e, 0x16, 0x9f, 0xfc, 0xc4, 0x14,
+	0x21, 0x14, 0x93, 0xa5, 0x50, 0x78, 0x4a, 0x0c, 0x42, 0x6a, 0x5c, 0x6c, 0xce, 0x45, 0xa9, 0x89,
+	0x25, 0xa9, 0xd8, 0xd4, 0x21, 0x99, 0xa6, 0xc6, 0xc5, 0x16, 0x5a, 0x90, 0x42, 0x94, 0xba, 0xa0,
+	0xd4, 0xdc, 0xfc, 0x32, 0x42, 0xea, 0x34, 0xb8, 0x38, 0xc2, 0x12, 0x73, 0x32, 0x89, 0x30, 0xd1,
+	0x80, 0x8b, 0x05, 0x14, 0x78, 0x68, 0xaa, 0x24, 0x90, 0x79, 0xc8, 0x81, 0xab, 0xc4, 0x90, 0xc4,
+	0x06, 0x0e, 0x7d, 0x63, 0x40, 0x00, 0x00, 0x00, 0xff, 0xff, 0xf1, 0x92, 0xec, 0xb9, 0xca, 0x01,
+	0x00, 0x00,
 }

@@ -7,20 +7,12 @@ import "supplier.proto";
 
 service SupplierService {
     rpc Ping(Request) returns(Response) {}
-    rpc Load(SupplierRequest) returns (SupplierResponse) {}
-    rpc Create(SupplierRequest) returns (SupplierResponse) {}
-    rpc Update(SupplierRequest) returns (SupplierResponse) {}
-    rpc Remove(SupplierRequest) returns (SupplierResponse) {}
+    rpc Load(Supplier) returns (Supplier) {}
+    rpc Create(Supplier) returns (Response) {}
+    rpc Update(Supplier) returns (Response) {}
+    rpc Remove(Supplier) returns (Response) {}
     rpc Validate(Supplier) returns (Response) {}
-    rpc List(SupplierRequest) returns (SupplierListResponse) {}
-}
-
-message SupplierRequest {
-    Supplier supplier = 1;
-}
-
-message SupplierResponse {
-    Supplier supplier = 1;
+    rpc List(Supplier) returns (SupplierListResponse) {}
 }
 
 message SupplierListResponse {
