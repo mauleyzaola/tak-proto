@@ -10,5 +10,11 @@ message Approval {
     google.protobuf.Timestamp date = 2;
     User user = 3;
     LabBatch batch = 4;
-    string result = 5;
+    ApprovalResult result = 5;
+}
+
+enum ApprovalResult {
+    UNKNOWN = 0;
+    APPROVED = 1;
+    REJECTED = 2;
 }
