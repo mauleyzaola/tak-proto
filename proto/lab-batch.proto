@@ -5,6 +5,7 @@ import "google/protobuf/timestamp.proto";
 import "lab-material.proto";
 import "location.proto";
 import "supplier.proto";
+import "approval.proto";
 
 message LabBatch {
     string id = 1;
@@ -21,5 +22,5 @@ message LabBatch {
     LabMaterial labMaterial = 13;
     google.protobuf.Timestamp manufactured = 14;
     google.protobuf.Timestamp reanalysis = 15;
-    string result = 16;
+    ApprovalResult result = 16;
 }
