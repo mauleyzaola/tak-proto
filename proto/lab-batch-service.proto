@@ -21,6 +21,11 @@ service LabBatchService {
     rpc CalcResult(LabBatchList) returns (Response) {}
     rpc SaveApproval(Approval) returns (Response) {}
     rpc ValidateApproval(Approval) returns (Response) {}
+    rpc Approvals(LabBatch) returns (ApprovalList) {}
+}
+
+message ApprovalList {
+    repeated Approval approvals = 1;
 }
 
 message LabBatchList {
