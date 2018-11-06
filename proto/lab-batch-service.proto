@@ -20,6 +20,7 @@ service LabBatchService {
     rpc Export(GridBatchRequest) returns (LabBatchList) {}
     rpc CalcResult(LabBatchList) returns (Response) {}
     rpc SaveApproval(Approval) returns (Response) {}
+    rpc ValidateApproval(Approval) returns (Response) {}
 }
 
 message LabBatchList {
