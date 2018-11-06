@@ -5,7 +5,6 @@ import "google/protobuf/timestamp.proto";
 import "lab-material.proto";
 import "location.proto";
 import "supplier.proto";
-import "approval.proto";
 
 message LabBatch {
     string id = 1;
