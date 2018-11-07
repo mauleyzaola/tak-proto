@@ -13,6 +13,7 @@ service UserService {
     rpc Remove (User) returns (Response) {}
     rpc List(User) returns (UserListResponse) {}
     rpc Validate(User) returns (Response) {}
+    rpc ChangePassword(User) returns (Response) {}
 }
 
 message UserListResponse {
