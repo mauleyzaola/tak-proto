@@ -6,7 +6,6 @@ import "request.proto";
 import "response.proto";
 import "grid.proto";
 import "google/protobuf/timestamp.proto";
-import "approval.proto";
 
 service LabBatchService {
     rpc Ping(Request) returns(Response) {}
@@ -18,14 +17,6 @@ service LabBatchService {
     rpc GenBatchCode(LabBatch) returns (LabBatch) {}
     rpc Grid(GridBatchRequest) returns (GridBatch) {}
     rpc Export(GridBatchRequest) returns (LabBatchList) {}
-    rpc CalcResult(ApprovalList) returns (Response) {}
-    rpc SaveApproval(Approval) returns (Response) {}
-    rpc ValidateApproval(Approval) returns (Response) {}
-    rpc Approvals(LabBatch) returns (ApprovalList) {}
-}
-
-message ApprovalList {
-    repeated Approval approvals = 1;
 }
 
 message LabBatchList {
