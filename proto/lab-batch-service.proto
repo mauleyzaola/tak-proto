@@ -20,8 +20,9 @@ service LabBatchService {
 }
 
 message BatchCodeRequest {
-    repeated LabBatch batches = 1;
+    // repeated LabBatch batches = 1;
     LabBatch batch = 2;
+    int32 next = 3;
 }
 
 message LabBatchList {
