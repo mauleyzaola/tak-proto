@@ -47,4 +47,6 @@ message BatchParams {
     google.protobuf.Timestamp manufacturedEnds = 11;
     string supplierBatch = 12;
     string batch = 13;
+    double minStock = 14;
+    double maxStock = 15;
 }
