@@ -22,4 +22,6 @@ message LabBatch {
     google.protobuf.Timestamp manufactured = 14;
     google.protobuf.Timestamp reanalysis = 15;
     string result = 16;
+    double stock = 17;
+    double initialQuantity = 18;
 }
