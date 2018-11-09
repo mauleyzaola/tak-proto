@@ -17,6 +17,7 @@ service LabBatchService {
     rpc GenBatchCode(BatchCodeRequest) returns (LabBatch) {}
     rpc Grid(GridBatchRequest) returns (GridBatch) {}
     rpc Export(GridBatchRequest) returns (LabBatchList) {}
+    rpc NextBatchNumber(LabBatch) returns (Response) {}
 }
 
 message BatchCodeRequest {
