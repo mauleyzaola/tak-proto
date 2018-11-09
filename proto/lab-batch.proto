@@ -24,4 +24,5 @@ message LabBatch {
     string result = 16;
     double stock = 17;
     double initialQuantity = 18;
+    int32 next = 19;
 }
