@@ -4,5 +4,6 @@ message Response {
     repeated string messages = 1;
     bool ok = 2;
     string data = 3;
+    int32 number = 4;
 }
 
