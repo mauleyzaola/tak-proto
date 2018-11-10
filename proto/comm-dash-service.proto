@@ -19,7 +19,7 @@ service CommDashService {
 }
 
 message CommDashParams {
-
+    repeated string suppliers = 1;
 }
 
 message GridCommDashRequest {
