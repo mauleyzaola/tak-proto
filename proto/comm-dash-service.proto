@@ -6,6 +6,7 @@ import "grid.proto";
 import "response.proto";
 
 service CommDashService {
+    rpc Validate(CommDash) returns (Response) {}
     rpc Create(CommDash) returns (Response) {}
     rpc Update(CommDash) returns (Response) {}
     rpc Remove(CommDash) returns (Response) {}
