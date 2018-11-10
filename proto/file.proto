@@ -1,0 +1,17 @@
+syntax = "proto3";
+package pb;
+
+import "google/protobuf/timestamp.proto";
+import "user.proto";
+
+message File {
+    string id = 1;
+    string parent = 2;
+    string name = 3;
+    User user = 4;
+    int32 length = 5;
+    google.protobuf.Timestamp created = 6;
+    string mimeType = 7;
+    string extension = 8;
+}
+

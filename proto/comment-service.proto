@@ -1,0 +1,16 @@
+syntax = "proto3";
+package pb;
+
+import "comment.proto";
+import "response.proto";
+
+service CommentService {
+    rpc Create(Comment) returns (Response) {}
+    rpc Update(Comment) returns (Response) {}
+    rpc Remove(Comment) returns (Response) {}
+    rpc List(Comment) returns (CommentList) {}
+}
+
+message CommentList {
+    repeated Comment comments = 1;
+}

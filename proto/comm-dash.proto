@@ -1,0 +1,38 @@
+syntax = "proto3";
+package pb;
+
+import "google/protobuf/timestamp.proto";
+import "currency.proto";
+import "lab-material.proto";
+import "supplier.proto";
+import "user.proto";
+
+message CommDash {
+    string id = 1;
+    int32 number = 2;
+    string type = 3;
+    google.protobuf.Timestamp created = 4;
+    google.protobuf.Timestamp startDate = 5;
+    google.protobuf.Timestamp cancelledDate = 6;
+    google.protobuf.Timestamp estimatedDate = 7;
+    LabMaterial material = 8;
+    User owner = 9;
+    double price = 10;
+    string cas = 11;
+    string fema = 12;
+    string nextAction = 13;
+    string trackId = 14;
+    string carrier = 15;
+    string status = 16;
+    string reason = 17;
+    string userCancelled = 18;
+    User assignee = 19;
+    string regulatoryStatus = 20;
+    Supplier supplier = 21;
+    string purchaseOrder = 22;
+    double quantity = 23;
+    double potentialKg = 24;
+    Currency currency = 25;
+    string clientSpec = 26;
+    bool hasPrice = 27;
+}

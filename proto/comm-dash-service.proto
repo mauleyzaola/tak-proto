@@ -1,0 +1,33 @@
+syntax = "proto3";
+package pb;
+
+import "comm-dash.proto";
+import "grid.proto";
+import "response.proto";
+
+service CommDashService {
+    rpc Create(CommDash) returns (Response) {}
+    rpc Update(CommDash) returns (Response) {}
+    rpc Remove(CommDash) returns (Response) {}
+    
+    rpc StartProgress(CommDash) returns (Response) {}
+    rpc StopProgress(CommDash) returns (Response) {}
+    rpc Cancel(CommDash) returns (Response) {}
+    rpc Close(CommDash) returns (Response) {}
+
+    rpc Grid(GridCommDashRequest) returns (GridCommDash) {}
+}
+
+message CommDashParams {
+
+}
+
+message GridCommDashRequest {
+    GridInput grid = 1;
+    CommDashParams params = 2;
+}
+
+message GridCommDash {
+    GridOutput grid = 1;
+    repeated CommDash rows = 2;
+}
