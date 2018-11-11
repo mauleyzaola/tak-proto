@@ -6,6 +6,7 @@ import "grid.proto";
 import "response.proto";
 
 service CatalogService {
+    rpc Validate(Catalog) returns (Response) {}
     rpc Load(Catalog) returns (Response) {}
     rpc Create(Catalog) returns (Response) {}
     rpc Update(Catalog) returns (Response) {}
