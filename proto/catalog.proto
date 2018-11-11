@@ -1,0 +1,28 @@
+syntax = "proto3";
+package pb;
+
+import "google/protobuf/timestamp.proto";
+
+message Catalog {
+    string id = 1;
+    google.protobuf.Timestamp date1 = 2;
+    google.protobuf.Timestamp date2 = 3;
+    google.protobuf.Timestamp date3 = 4;
+    google.protobuf.Timestamp date4 = 5;
+    string string1 = 6;
+    string string2 = 7;
+    string string3 = 8;
+    string string4 = 9;
+    double number1 = 10;
+    double number2 = 11;
+    double number3 = 12;
+    double number4 = 13;
+    int64 int1 = 14;
+    int64 int2 = 15;
+    int64 int3 = 16;
+    int64 int4 = 17;
+    bool bool1 = 18;
+    bool bool2 = 19;
+    bool bool3 = 20;
+    bool bool4 = 21;
+}
