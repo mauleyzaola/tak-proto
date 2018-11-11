@@ -5,6 +5,7 @@ import "google/protobuf/timestamp.proto";
 
 message Catalog {
     string id = 1;
+    string name = 100; // this field simulates different tables
     google.protobuf.Timestamp date1 = 2;
     google.protobuf.Timestamp date2 = 3;
     google.protobuf.Timestamp date3 = 4;
