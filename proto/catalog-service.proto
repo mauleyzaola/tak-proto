@@ -11,7 +11,7 @@ service CatalogService {
     rpc Create(Catalog) returns (Response) {}
     rpc Update(Catalog) returns (Response) {}
     rpc Remove(Catalog) returns (Response) {}
-    rpc List(Catalog) returns (Response) {}
+    rpc List(Catalog) returns (CatalogResponse) {}
     rpc Grid(Catalog) returns (Response) {}
 }
 
@@ -25,4 +25,8 @@ message GridCatalogResponse {
     GridOutput grid = 1;
     repeated Catalog rows = 2;
     string name = 3;
+}
+
+message CatalogResponse {
+    repeated Catalog rows = 1;
 }
