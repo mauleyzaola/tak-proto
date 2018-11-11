@@ -28,5 +28,6 @@ message GridCatalogResponse {
 }
 
 message CatalogResponse {
-    repeated Catalog rows = 1;
+    GridOutput grid = 1;
+    repeated Catalog rows = 2;
 }
