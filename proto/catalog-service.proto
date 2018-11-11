@@ -17,9 +17,11 @@ service CatalogService {
 message GridCatalogRequest {
     GridInput grid = 1;
     Catalog params = 2;
+    string name = 3;
 }
 
 message GridCatalogResponse {
     GridOutput grid = 1;
     repeated Catalog rows = 2;
+    string name = 3;
 }
