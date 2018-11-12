@@ -4,6 +4,7 @@ package pb;
 import "comm-dash.proto";
 import "grid.proto";
 import "response.proto";
+import "user.proto";
 
 service CommDashService {
     rpc Validate(CommDash) returns (Response) {}
@@ -13,7 +14,7 @@ service CommDashService {
     
     rpc StartProgress(CommDash) returns (Response) {}
     rpc StopProgress(CommDash) returns (Response) {}
-    rpc Cancel(CommDash) returns (Response) {}
+    rpc Cancel(CommDashCancelRequest) returns (Response) {}
     rpc Close(CommDash) returns (Response) {}
 
     rpc Grid(GridCommDashRequest) returns (GridCommDash) {}
@@ -31,4 +32,10 @@ message GridCommDashRequest {
 message GridCommDash {
     GridOutput grid = 1;
     repeated CommDash rows = 2;
+}
+
+message CommDashCancelRequest {
+    CommDash dash = 1;
+    User user = 2;
+    string reason = 3;
 }
