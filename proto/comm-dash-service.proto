@@ -11,6 +11,7 @@ service CommDashService {
     rpc Create(CommDash) returns (Response) {}
     rpc Update(CommDash) returns (Response) {}
     rpc Remove(CommDash) returns (Response) {}
+    rpc Load(CommDash) returns (CommDash) {}
     
     rpc StartProgress(CommDash) returns (CommDash) {}
     rpc StopProgress(CommDash) returns (CommDash) {}
