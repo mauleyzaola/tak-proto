@@ -13,6 +13,7 @@ service CatalogService {
     rpc Remove(Catalog) returns (Response) {}
     rpc List(Catalog) returns (CatalogResponse) {}
     rpc Grid(GridCatalogRequest) returns (GridCatalogResponse) {}
+    rpc Ping(Catalog) returns (Response) {}
 }
 
 message GridCatalogRequest {
