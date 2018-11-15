@@ -2,7 +2,7 @@ syntax = "proto3";
 package pb;
 
 import "google/protobuf/timestamp.proto";
-import "currency.proto";
+import "catalog.proto";
 import "lab-material.proto";
 import "supplier.proto";
 import "user.proto";
@@ -32,7 +32,7 @@ message CommDash {
     string purchaseOrder = 22;
     double quantity = 23;
     double potentialKg = 24;
-    Currency currency = 25;
+    Catalog currency = 25;
     string clientSpec = 26;
     bool hasPrice = 27;
 }
