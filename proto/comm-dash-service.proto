@@ -20,6 +20,8 @@ service CommDashService {
     rpc NextNumber(CommDash) returns (Response) {}
 
     rpc Grid(GridCommDashRequest) returns (GridCommDash) {}
+
+    rpc DefaultStatus(CommDash) returns (Response) {}
 }
 
 message CommDashParams {
