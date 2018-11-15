@@ -8,6 +8,7 @@ import "user.proto";
 service UserService {
     rpc Ping(Request) returns(Response) {}
     rpc Load (User) returns (User) {}
+    rpc LoadPublic (User) returns (User) {}
     rpc Create (User) returns (Response) {}
     rpc Update (User) returns (Response) {}
     rpc Remove (User) returns (Response) {}
