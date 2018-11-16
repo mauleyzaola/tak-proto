@@ -16,7 +16,7 @@ service CommDashService {
     rpc StartProgress(CommDash) returns (CommDash) {}
     rpc StopProgress(CommDash) returns (CommDash) {}
     rpc Cancel(CommDashCancelRequest) returns (CommDash) {}
-    rpc Reopen(CommDashCancelRequest) returns (CommDash) {}
+    rpc Reopen(CommDash) returns (CommDash) {}
     rpc Close(CommDash) returns (CommDash) {}
     rpc NextNumber(CommDash) returns (Response) {}
 
