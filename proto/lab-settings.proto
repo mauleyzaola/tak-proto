@@ -5,7 +5,7 @@ package pb;
 message LabSettings {
     string baseDomain = 1;
     int32 daysToExpire = 2;
-    string mailKey = 3;
+    // string mailKey = 3;
     repeated string notifyAreas = 4;
     string senderAddress = 5;
     string groupLaboratory = 7;
