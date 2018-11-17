@@ -1,0 +1,6 @@
+syntax = "proto3";
+package pb;
+
+message UserSettings {
+    bool notifyAllMaterials = 1;
+}
