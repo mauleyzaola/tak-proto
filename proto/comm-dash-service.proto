@@ -23,10 +23,16 @@ service CommDashService {
     rpc Grid(GridCommDashRequest) returns (GridCommDash) {}
 
     rpc DefaultStatus(CommDash) returns (Response) {}
+    rpc Lilst(CommDashParams) returns (CommDashList) {}
+}
+
+message CommDashList {
+    repeated CommDash rows = 1;
 }
 
 message CommDashParams {
     repeated string suppliers = 1;
+    repeated string materials = 2;
 }
 
 message GridCommDashRequest {
