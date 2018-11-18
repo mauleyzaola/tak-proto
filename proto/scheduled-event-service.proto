@@ -21,6 +21,8 @@ service ScheduledEventService {
 
     rpc List(ListEventFilter) returns (ScheduledEvents) {}
     rpc Validate(ScheduledEvent) returns (Response){}
+
+    rpc LoadBySourceId(Request) returns (ScheduledEvents) {}
 }
 
 message Schedules{

@@ -1,8 +1,6 @@
 syntax = "proto3";
 package pb;
 
-import "user.proto";
-
 message UserSettings {
     bool notifyAllMaterials = 1;
 }
