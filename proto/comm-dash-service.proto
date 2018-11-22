@@ -33,6 +33,7 @@ message CommDashList {
 message CommDashParams {
     repeated string suppliers = 1;
     repeated string materials = 2;
+    repeated string status = 3;
 }
 
 message GridCommDashRequest {
