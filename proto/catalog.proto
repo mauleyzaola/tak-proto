@@ -26,4 +26,10 @@ message Catalog {
     bool bool2 = 19;
     bool bool3 = 20;
     bool bool4 = 21;
+    string string5 = 22;
+    string string6 = 23;
+    string string7 = 24;
+    string string8 = 25;
+    string string9 = 26;
+    string string10 = 27;
 }
