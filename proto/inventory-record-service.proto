@@ -13,6 +13,7 @@ service InventoryRecordService {
     rpc List(InventoryRecord) returns (InventoryRecordList) {}
     rpc Validate(InventoryRecord) returns (Response) {}
     rpc Grid(GridInvRecordRequest) returns (GridInvRecord) {}
+    rpc Export(GridInvRecordRequest) returns (InventoryRecordList) {}
 }
 
 message InventoryRecordList{
