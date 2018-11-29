@@ -6,6 +6,8 @@ import "response.proto";
 import "request.proto";
 import "inventory-record.proto";
 
+import "google/protobuf/timestamp.proto";
+
 service InventoryRecordService {
     rpc Ping(Request) returns(Response) {}
     rpc Create(InventoryRecord) returns (Response) {}
@@ -22,9 +24,21 @@ message InventoryRecordList{
 
 message GridInvRecordRequest {
     GridInput grid = 1;
+    InvRecParams params = 2;
 }
 
 message GridInvRecord {
     GridOutput grid = 1;
     repeated InventoryRecord rows = 2;
+}
+
+message InvRecParams {
+    string codes = 1;
+    repeated string locations = 2;
+    google.protobuf.Timestamp from = 3;
+    google.protobuf.Timestamp to = 4;
+    repeated string suppliers = 5;
+    string batch = 6;
+    double minQty = 7;
+    double maxQty = 8;
 }
